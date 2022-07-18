@@ -12,4 +12,5 @@
 [Git](https://github.com/Dong-Uri/TIL/blob/master/Basic/git/git.md)
 
 ## Algorithm
-### SWEA
+
+[SWEA](https://github.com/Dong-Uri/TIL/blob/master/Algorithm/SWEA)
