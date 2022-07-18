@@ -2,14 +2,14 @@
 - Today I Learned
 - 오늘 내가 공부한 것
 - 1일1커밋(~22.07.18)
----
+
 ## Basic
-[markdown]
 
-[git]
+[CLI](https://github.com/Dong-Uri/TIL/blob/master/Basic/CLI/CLI.md)
 
-[CLI]
+[Markdown](https://github.com/Dong-Uri/TIL/blob/master/Basic/markdown/markdown.md)
 
----
+[Git](https://github.com/Dong-Uri/TIL/blob/master/Basic/git/git.md)
+
 ## Algorithm
 ### SWEA
