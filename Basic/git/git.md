@@ -40,35 +40,44 @@
 >
 > WD에서는 이젠 *modified* 상태가 됨
 > 
-- git status
+- `git status`
     - 현재 git으로 관리되고 있는 파일들의 상태를 확인
-- git add
+- `git add`
     - git add . 으로 모든 파일 add 할 수 있음
-- git commit
+- `git commit`
     - git commit만 하면 이상한거 뜸 (:q로 나가기)
     - git commit -m “쓰고 싶은 말 (ex. add readme.md, update a.txt)” 이런 식으로 커밋
-- git log
+- `git log`
     - 로그 보여줌
-- git diff A B
+- `git diff A B`
     - A에 비해 B가 어떻게 변했는지 두 커밋 사이 변경 사항을 알려줌
     - commit 번호 앞자리 4개만 써도 가능함
 
 - Local Repository (PC) ↔ Remote Repository (GitHub)
 
 - remote
-    1. git remote add origin {remote_repo}
+    1. `git remote add origin {remote_repo}`
         - origin : <repo_name> 별명 (관례적)
         - {remote_repo} : github의 repo 주소
-    2. git push -u origin master 
+    2. `git push -u origin master`
          - git push A B : A로 B브랜치를 push
          - -u : 사용 이후에는 git push만 써도 사용 가능
 
 - repo 생성시 README를 추가할때 defalut branch 이름을 바꿀수있다 (main → master)
 
 - clone
-    1. git clone {remote_repo}
-    2. git push origin master
+    1. `git clone {remote_repo}`
+    2. `git push origin master`
 
 - pull
-    1. git pull
+    1. `git pull`
     2. 양 쪽 모두 변경 사항이 있을 경우 충돌 merge → 사항을 보고 수정 후 git push
+
+## Git user
+
+- 사용자 정보 설정
+    - `git config --global user.name '이름'`
+    - `git config --global user.email '이메일'`
+    - global을 local로 변경시 해당 장소에 대해서만 설정을 바꿀 수 있다.
+
+에러 발생시 제어판에서 자격 증명 관리를 찾아 자격 삭제 후 재설정 가능
