@@ -1,5 +1,7 @@
 - 화면 캡쳐
   - windows + shift + s
+- `https://pythontutor.com/visualize.html#mode=edit`
+  - 코드 visualize 해주는 웹
 
 # Visual Studio Code
 
@@ -20,6 +22,8 @@
   - 저장
 - alt + shift + 아래
   - 해당 줄 아래에 복사 붙여넣기
+- alt + 위, 아래
+  - 해당 줄 위, 아래로 옮기기
 - alt + 좌클릭
   - 여러 곳 클릭
 
