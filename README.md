@@ -5,13 +5,15 @@
 
 ## Study
 
-[CLI](https://github.com/Dong-Uri/TIL/blob/master/Basic/CLI/CLI.md)
+[CLI](https://github.com/Dong-Uri/TIL/blob/master/Basic/CLI.md)
 
-[Markdown](https://github.com/Dong-Uri/TIL/blob/master/Basic/markdown/markdown.md)
+[Markdown](https://github.com/Dong-Uri/TIL/blob/master/Basic/markdown.md)
 
-[Git](https://github.com/Dong-Uri/TIL/blob/master/Basic/git/git.md)
+[Git](https://github.com/Dong-Uri/TIL/blob/master/Basic/git.md)
 
-[program](https://github.com/Dong-Uri/TIL/blob/master/Basic/program/program.md)
+[Programs](https://github.com/Dong-Uri/TIL/blob/master/Basic/program.md)
+
+[Case Styles](https://github.com/Dong-Uri/TIL/blob/master/Basic/case_styles.md)
 
 [Python](https://github.com/Dong-Uri/TIL/tree/master/Python)
 
