@@ -55,7 +55,7 @@
 
 - Local Repository (PC) ↔ Remote Repository (GitHub)
 
-- remote
+- push
     1. `git remote add origin {remote_repo}`
         - origin : <repo_name> 별명 (관례적)
         - {remote_repo} : github의 repo 주소
@@ -68,10 +68,19 @@
 - clone
     1. `git clone {remote_repo}`
     2. `git push origin master`
+        - 클론시 알아서 새 폴더를 만드므로 미리 만들지 말자
 
 - pull
     1. `git pull`
     2. 양 쪽 모두 변경 사항이 있을 경우 충돌 merge → 사항을 보고 수정 후 git push
+
+- 주소 변경
+    - `git remote -v`
+        - 우선 현재 주소를 확인
+    - `git remote set-url origin [새로운 rep 주소]`
+
+- 브랜치명 변경
+    - `git branch -m [변경전 이름] [새로운 이름]`
 
 ## Git user
 
