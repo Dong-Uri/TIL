@@ -2,6 +2,9 @@
     - windows + shift + s
 - `https://pythontutor.com/visualize.html#mode=edit`
     - 코드 visualize 해주는 웹
+- D2coding
+    - 추천 글꼴
+    - VSCode에서는 설정(ctrl + ,)에서 Font Family 맨 앞에 추가
 
 # Visual Studio Code
 
