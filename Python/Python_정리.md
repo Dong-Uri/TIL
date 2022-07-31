@@ -1,0 +1,61 @@
+- 매개변수(*args, **kwargs)
+    - 가변 인자(*args)
+        - 여러개의 Positional Argument를 하나의 parameter로 받음
+        - `s, *rest, e = (1,2,3,4,5)` 이런 식도 가능!
+            - 실험 결과 함수의 인자로는 안됨 ㅠ
+    - 가변 키워드 인자(**kwargs)
+        - **정말 쓸일이 없다.**
+        - 딕셔너리로 묶여 처리
+- 딕셔너리 값에 대한 접근 방법 두가지
+    - `d[key]`
+        - key에 대한 value를 반환
+        - key가 없으면 `KeyError`가 발생
+    - `d.get(key[,default])`
+        - key에 대한 value를 반환
+        - key가 없어도 `KeyError`가 발생하지 않고, default 값을 반환
+            - default의 기본값은 None
+    - `d.setdefault(key[,default])`
+        - get과 비슷한 동작을 함
+        - key가 없는 경우 default 값을 갖는 key를 삽입함
+            - default의 기본값도 똑같이 None
+- truthy, falsy
+    - Falsy
+        - False는 아니지만 False로 취급 되는 값
+        - `0`, `0.0`, `()`, `[]`, `{}`, `None`, `“”`
+    - Truthy
+        - 위와 정 반대의 경우들
+- 각 자료형의 특징
+    - 반복가능(iterable)
+        - 반복 가능한 객체
+        - list, dict, set, str, tuple, range
+        - 시퀀스 자료형
+            - 순서가 정해져 있고 연속적인 객체
+            - list, tuple, range, str
+    - 변경가능(mutable)
+        - 요소를 삽입, 변경, 삭제 가능
+        - list, set, dict
+- 객체와 인스턴스
+    - 생성자와 속성
+    - 메서드
+    - 넘많음
+        - [OOP 정리](https://github.com/Dong-Uri/TIL/blob/master/Python/08_OOP.md)
+- 얕은복사, 깊은복사
+    - 할당(Assignment)
+        - 대입 연산자 `=`
+            - `copy_list = original_list`
+            - 해당 객체에 대한 객체 참조를 복사
+            - 해당 주소의 일부 값을 변경하는 경우 이를 참조하는 모든 변수에 영향
+    - 얕은 복사(shallow copy)
+        - Slice 연산자 활용
+            - `b = a[:]`
+            - 연결된 결과를 복사
+                - 다른 주소
+            - 복사한 리스트의 원소가 주소를 참조하는 경우 이를 참조하는 모든 변수에 영향
+    - 깊은 복사(Deep copy)
+        - `import copy`
+        - `b = copy.deepcopy(a)`
+- 여러가지 연산
+    - 연산은 대입해 써보며 연습하는게 최고임
+    - 논리 연산자의 단축 평가
+        - `5 and 4 -> 4`
+        - `5 or 3 -> 5`
