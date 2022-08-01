@@ -5,27 +5,21 @@
 
 ## Study
 
-<details>
-<summary>Basic</summary>
+- Basic
 
-[CLI](https://github.com/Dong-Uri/TIL/blob/master/Basic/CLI.md)
+    - [CLI](https://github.com/Dong-Uri/TIL/blob/master/Basic/CLI.md)
 
-[Markdown](https://github.com/Dong-Uri/TIL/blob/master/Basic/markdown.md)
+    - [Markdown](https://github.com/Dong-Uri/TIL/blob/master/Basic/markdown.md)
 
-[Git](https://github.com/Dong-Uri/TIL/blob/master/Basic/git.md)
+    - [Git](https://github.com/Dong-Uri/TIL/blob/master/Basic/git.md)
 
-[Case Styles](https://github.com/Dong-Uri/TIL/blob/master/Basic/case_styles.md)
+    - [Case Styles](https://github.com/Dong-Uri/TIL/blob/master/Basic/case_styles.md)
 
-[기타...](https://github.com/Dong-Uri/TIL/blob/master/Basic/guitar.md)
+    - [기타...](https://github.com/Dong-Uri/TIL/blob/master/Basic/guitar.md)
 
-</details>
+- [Python](https://github.com/Dong-Uri/TIL/tree/master/Python)
 
-<details>
-<summary>Python</summary>
-
-[Python](https://github.com/Dong-Uri/TIL/tree/master/Python)
-</details>
-
+- [Web](https://github.com/Dong-Uri/TIL/tree/master/Web)
 
 ## Algorithm
 
