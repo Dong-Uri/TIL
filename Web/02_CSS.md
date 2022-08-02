@@ -145,10 +145,18 @@
         - 테두리 영역
         - `border-width`
         - `border-style`
+            - `solid`
+                - 실선
+            - `dotted`
+                - 점선
+            - `dashed`
+                - 파선
         - `border-color`
         - shorthand
             - `border: 2px dashed black;`
                 - 위의 순서대로
+        - `border-radius`
+            - 테두리 모서리에 반경을 줌
     - padding
         - 테두리 안쪽의 내부 여백
         - 적용된 배경색, 이미지는 padding까지 적용
@@ -169,7 +177,7 @@
     - 블록 레벨 요소 안에 인라인 레벨 요소가 들어갈 수 있음
     - 대표적인 요소
         - `div`, `p`, `hr`, `form` 등
-    - 자신을 수평 정렬
+    - 블록레벨 요소 정렬
         - `margin-right: auto;`
             - 왼쪽 정렬
             - 오른쪽에 마진을 자동으로 줌
@@ -179,13 +187,6 @@
         - `margin-right: auto;`, `margin-left: auto;`
             - 가운데 정렬
             - 양쪽에 마진을 자동으로 줌
-    - 내부를 수평 정렬
-        - `text-align: left;`
-            - 왼쪽 정렬
-        - `text-align: right;`
-            - 오른쪽 정렬
-        - `text-align: center;`
-            - 가운데 정렬
 - `display: inline;`
     - 줄 바꿈이 일어나지 않는 행의 일부요소
     - content 너비만큼 가로 폭을 차지
@@ -193,6 +194,14 @@
     - 상하 여백은 line-height로 지정함
     - 대표적인 요소
         - `span`, `a`, `img`, `input`, `label` 등
+    - 인라인레벨 요소 가운데 정렬
+        - 부모 요소인 박스 모델에 속성을 줌
+        - `text-align: left;`
+            - 왼쪽 정렬
+        - `text-align: right;`
+            - 오른쪽 정렬
+        - `text-align: center;`
+            - 가운데 정렬
 - `display: inline-block;`
     - inline처럼 한 줄에 표시
     - block처럼 width, height, margin 속성을 지정할 수 있음
@@ -212,7 +221,7 @@
     - normal flow 유지
     - 요소가 차지하는 공간은 static과 같음
 - `position: absolute;`
-    - 가장 가까운 부모 요소를 기준으로 이동
+    - **static이 아닌**가장 가까운 부모 요소를 기준으로 이동
     - nomal flow 벗어남
     - 레이아웃에 공간을 차지하지 않음
 - `position: fixed;`
