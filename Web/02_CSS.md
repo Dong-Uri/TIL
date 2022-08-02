@@ -1,0 +1,226 @@
+- Cascading Style Sheets
+    - 스타일을 지정하기 위한 언어
+    - 선택하고, 스타일을 지정한다.
+- 정의 방법
+    - 인라인(inline)
+        - 태그에 직접 style 속성에 넣음
+        - `style="color: blue; font-size: 100px;"`
+        - 실수가 잦아지므로 가끔 씀
+    - 내부 참조(embedding)
+        - `<head>`내에 `<style>`안에 지정
+        - 코드가 길어지므로 거의 안씀
+    - 외부 참조(link file)
+        - `<head>`내에 `<link>`를 통해 css를 불러옴
+        - `<link rel="stylesheet" href="mystyle.css">`
+        - 가장 많이 쓰는 방식
+- 개발자 도구
+    - styles
+        - 해당 요소에 선언된 모든 CSS
+    - computed
+        - 해당 요소에 최종 계산된 CSS
+- 상속
+    - 상속을 통해 부모 요소의 속성을 자식에게 상속함
+    - 상속 되는 것
+        - Test 관련 요소
+        - opacity
+        - visibility
+    - 상속 되지 않는 것
+        - Box moel 관련 요소
+        - position 관련 요소
+
+# CSS Selectors
+
+- 선택자(Selector) 유형
+    - 기본 선택자
+        - 전체 선택자
+            - `*`
+        - 요소 선택자
+            - 태그를 직접 선택
+        - 클래스 선택자
+            - `.`로 시작하며, 클래스가 적용된 항목을 선택
+        - 아이디 선택자
+            - `#`로 시작하며, 해당 아이디가 적용된 항목을 선택
+        - 속성 선택자
+            - 거의 쓸일없음
+        - 적용 순서
+            1. !important
+                - 조심해서 사용해야함
+            2. 인라인
+            3. id
+            4. class
+            5. 요소
+            6. CSS 파일 로딩 순서
+    - 결합자(Combinators)
+        - 자손 결합자 (`A B`)
+            - A 하위의 모든 B 요소
+        - 자식 결합자 (`A > B`)
+            - A 바로 아래의 B 요소
+        - 일반 형체 결합자 (`A ~ B`)
+            - A의 형제 요소 중 바로 뒤에 위치하는 B 요소 모두
+        - 인접 형체 결합자 (`A + B`)
+            - A의 형제 요소 중 바로 뒤에 위치하는 B 요소
+    - 의사 클래스/요소(Pseudo Class)
+        - 정말 필요한 경우 몇개 만 씀
+
+# 기본 스타일
+
+- 문서 표현
+    - 서체 크기
+        - `font-size`
+    - 서체
+        - `font-family`
+    - 서체 스타일
+        - `font-style`
+        - `font-weight`
+    - 자간
+        - `letter-spacing`
+    - 단어 간격
+        - `word-spacing`
+    - 행간
+        - `line-height`
+    - 컬러
+        - `color`
+    - 배경
+        - `background-image`
+        - `background-color`
+    - 목록
+        - `li`
+    - 표
+        - `table`
+- 크기 단위
+    - `px`(픽셀)
+        - 고정적인 단위
+    - `%`
+        - 백분율 단위
+    - `em`
+        - 상속의 영향을 받음
+        - 부모 요소의 사이즈를 기준으로 배수 단위를 가짐
+    - `rem`
+        - 상속의 영향을 받지 않음
+        - 최상위 요소(html)의 사이즈를 기준으로 배수 단위를 가짐
+    - viewport
+        - 디바이스의 viewport를 기준으로 상대적인 사이즈가 결정됨
+        - `vw`, `vh`, `vmin`, `vmax`
+            - 화면의 1/100 단위
+- 색상 단위
+    - 색상 키워드
+        - `red`, `blue`, `black`과 같은 특정 색을 직접 글자로 나타냄
+    - RGB 색상
+        - 16진수 표기법 혹은 함수형 표기법을 사용해 특정 색을 나타냄
+        - 16진수 표기법
+            - `#000`, `#000000`
+        - 함수형 표기법
+            - `rgb(0, 0, 0)`
+            - `rgba(0, 0, 0, 0.5)`
+                - a는 alpha(투명도)
+    - HSL 색상
+        - 색상, 채도, 명도를 통해 특정 색을 나타냄
+        - `hsl(120, 100%, 0)`
+        - `hsla(120, 100%, 0, 0.5)`
+            - a는 alpha(투명도)
+
+# CSS Box bodel
+
+- 모든 HTML 요소는 box 형태로 되어있음
+- Normal Flow
+    - 위에서부터 아래로, 왼쪽에서 오른쪽으로 쌓임
+- 하나의 박스는 네 부분(영역)으로 이루어짐
+    - margin
+        - 테두리 바깥의 외부 여백
+        - 배경색 지정 불가
+        - `margin-top`
+        - `margin-right`
+        - `margin-bottom`
+        - `margin-left`
+        - shorthand
+            - `margin: 10px;`
+                - 상하좌우 모두
+            - `margin: 10px 20px;`
+                - 상하와 좌우
+            - `margin: 10px 20px 30px;`
+                - 상, 좌우, 하
+            - `margin: 10px 20px 30px 40px;`
+                - 상, 우, 하, 좌 (시계방향)
+    - border
+        - 테두리 영역
+        - `border-width`
+        - `border-style`
+        - `border-color`
+        - shorthand
+            - `border: 2px dashed black;`
+                - 위의 순서대로
+    - padding
+        - 테두리 안쪽의 내부 여백
+        - 적용된 배경색, 이미지는 padding까지 적용
+        - `pading`
+            - margin과 마찬가지로 적용
+    - content
+        - 요소의 실제 내용
+- box-sizing
+    - 기본적으로 모든 요소의 box-sizing은 content-box
+    - 우리가 일반적으로 영역을 볼때는 border까지
+        - 그 경우 box-sizing을 border-box로 설정
+
+# CSS Display
+
+- `display: block;`
+    - 줄 바꿈이 일어나는 요소
+    - 화면 크기 전체의 가로 폭을 차지
+    - 블록 레벨 요소 안에 인라인 레벨 요소가 들어갈 수 있음
+    - 대표적인 요소
+        - `div`, `p`, `hr`, `form` 등
+    - 자신을 수평 정렬
+        - `margin-right: auto;`
+            - 왼쪽 정렬
+            - 오른쪽에 마진을 자동으로 줌
+        - `margin-left: auto;`
+            - 오른쪽 정렬
+            - 왼쪽에 마진을 자동으로 줌
+        - `margin-right: auto;`, `margin-left: auto;`
+            - 가운데 정렬
+            - 양쪽에 마진을 자동으로 줌
+    - 내부를 수평 정렬
+        - `text-align: left;`
+            - 왼쪽 정렬
+        - `text-align: right;`
+            - 오른쪽 정렬
+        - `text-align: center;`
+            - 가운데 정렬
+- `display: inline;`
+    - 줄 바꿈이 일어나지 않는 행의 일부요소
+    - content 너비만큼 가로 폭을 차지
+    - width, height, margin-top, margin-bottom을 지정할 수 없음
+    - 상하 여백은 line-height로 지정함
+    - 대표적인 요소
+        - `span`, `a`, `img`, `input`, `label` 등
+- `display: inline-block;`
+    - inline처럼 한 줄에 표시
+    - block처럼 width, height, margin 속성을 지정할 수 있음
+- `display: none;`
+    - 해당 요소를 화면에 표시하지 않고 공간도 부여하지 않음
+- `visibility: hidden;`
+    - none과 비슷하지만 공간은 차지함
+- [이외 display 속성](http://developer.mozilla.org/ko/docs/Web/CSS/display)
+
+# CSS Position
+
+- 문서 상에서 요소의 위치를 지정
+- `position: static;`
+    - 기본 값
+- `position: relative;`
+    - 자신의 static 위치를 기준으로 이동
+    - normal flow 유지
+    - 요소가 차지하는 공간은 static과 같음
+- `position: absolute;`
+    - 가장 가까운 부모 요소를 기준으로 이동
+    - nomal flow 벗어남
+    - 레이아웃에 공간을 차지하지 않음
+- `position: fixed;`
+    - viewport 기준으로 이동
+    - nomal flow 벗어남
+    - 레이아웃에 공간을 차지하지 않음
+- `position: sticky;` 
+    - 평소에는 static 상태
+    - 스크롤 위치가 임계점에 이르면 fixed와 같은 상태
+- `top: 40px; left: 40px;`
+    - 좌상에서 떨어진 정도를 말함

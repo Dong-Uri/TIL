@@ -5,68 +5,176 @@
         - 태그 등을 이용하여 문서나 데이터의 구조를 명시하는 언어
     - 웹 페이지를 작성(구조화)하기 위한 언어
     - `.html`
-    - 공백은 2 space
-- 기본 구조
-    - `<html>`
-        - 문서의 최상위 (root)
-    - `<head>`
-        - 문서 메타데이터 요소
-        - 일반적으로 브라우저에 나타나지 않는 내용
-        - `<title>`
-            - 브라우저 상단 타이틀
-        - `<meta>`
-            - 문서 레벨 메타데이터 요소
-        - `<link>`
-            - 외부 리소스 연결 요소
-            - CSS파일, favicon 등
-        - `<script>`
-            - 스크립트 요소
-            - JavaScript 파일/코드
-        - `<style>`
-            - CSS 직접 작성
-    - `<body>`
-        - 실제 화면 구성과 관련된 내용
-    - 요소(element)
-        - 시작 태그, 종료 태그, 그 사이에 위치한 내용으로 구성
-        - 내용과 닫는 태그가 없는 태그도 존재
-            - br, hr, img, input, link, meta
-        - 요소는 중첩됨
-    - 속성(attribute)
-        - 태그의 부가적인 정보를 설정
-        - 요소는 속성을 가질 수 있으며, 시작 태그에 작성함
-        - 공백은 없이 쌍따옴표를 사용함
-        - HTML Global Attribute
-            - 모든 HTML 요소가 공통으로 사용할 수 있는 대표적인 속성
-            - id
-                - 유일한 고유 식별자 지정
-            - class
-                - 공백으로 구분된 해당 요소의 클래스의 목록
-                - CSS, JS에서 요소를 선택하거나 접근
-            - data-*
-                - 페이지에 개인 사용자 정의 데이터를 저장
-            - style
-                - inline 스타일
-            - title
-                - 요소에 대한 추가 정보 지정
-            - tablindex
-                - 요소의 탭 순서
-    - 시맨틱 태그
-        - 태그가 특정 목적, 역할 및 의미적 가치를 가지는 것
-        - div 태그를 대체하여 사용하기 위해 의미론적 요소를 담은 태그들이 추가됨
-        - header
-            - 문서 전체나 섹션의 헤더
-        - nav
-            - 내비게이션
-        - aside
-            - 사이드에 위치한 공간
-        - section
-            - 문서의 일반적인 구분
-            - 컨텐츠의 구룹을 표현
-        - article
-            - 문서, 페이지 사이트 안에서 독립적으로 구분되는 영역
-        - footer
-            - 문서 전체나 섹션의 푸터
-    - 렌더링(Rendering)
-        - 웹사이트 코드를 사용자가 보게 되는 웹 사이트로 바꾸는 과정
-    - DOM(Document Object Model) 트리
-        - 텍스트 파일인 HTML 문서를 브라우저에 렌더링 하기 위한 구조
+    - 기본 들여쓰기는 2 space
+
+# 기본 구조
+
+- `<html>`
+    - 문서의 최상위 (root)
+- `<head>`
+    - 문서 메타데이터 요소
+    - 일반적으로 브라우저에 나타나지 않는 내용
+    - `<title>`
+        - 브라우저 상단 타이틀
+    - `<meta>`
+        - 문서 레벨 메타데이터 요소
+        - ex. 링크 미리보기
+    - `<link>`
+        - 외부 리소스 연결 요소
+        - CSS파일, favicon 등
+        - favicon은 사이트 아이콘
+    - `<script>`
+        - 스크립트 요소
+        - JavaScript 파일/코드
+    - `<style>`
+        - CSS 직접 작성
+- `<body>`
+    - 실제 화면 구성과 관련된 내용
+- 요소(element)
+    - 시작 태그, 종료 태그, 그 사이에 위치한 내용으로 구성
+    - 내용과 닫는 태그가 없는 태그도 존재
+        - br, hr, img, input, link, meta
+    - 요소는 중첩됨
+- 속성(attribute)
+    - 태그의 부가적인 정보를 설정
+    - 요소는 속성을 가질 수 있으며, 시작 태그에 작성함
+    - 공백은 없이 쌍따옴표를 사용함
+    - HTML Global Attribute
+        - 모든 HTML 요소가 공통으로 사용할 수 있는 대표적인 속성
+        - `id`
+            - 유일한 고유 식별자 지정
+            - `#`으로 접근
+        - `class`
+            - 공백으로 구분된 해당 요소의 클래스의 목록
+            - CSS, JS에서 요소를 선택하거나 접근
+            - `.`으로 접근
+        - `data-*`
+            - 페이지에 개인 사용자 정의 데이터를 저장
+        - `style`
+            - inline 스타일
+        - `title`
+            - 요소에 대한 추가 정보 지정
+        - `tablindex`
+            - 요소의 탭 순서
+- 시맨틱 태그
+    - 태그가 특정 목적, 역할 및 의미적 가치를 가지는 것
+    - div 태그를 대체하여 사용하기 위해 의미론적 요소를 담은 태그들이 추가됨
+    - `header`
+        - 문서 전체나 섹션의 헤더
+    - `nav`
+        - 내비게이션
+    - `aside`
+        - 사이드에 위치한 공간
+    - `section`
+        - 문서의 일반적인 구분
+        - 컨텐츠의 구룹을 표현
+    - `article`
+        - 문서, 페이지 사이트 안에서 독립적으로 구분되는 영역
+    - `footer`
+        - 문서 전체나 섹션의 푸터
+    - 검색 엔진 최적화(SEO)를 위해 메타태그, 시맨틱 태그 등을 효과적으로 활용
+- 렌더링(Rendering)
+    - 웹사이트 코드를 사용자가 보게 되는 웹 사이트로 바꾸는 과정
+- DOM(Document Object Model) 트리
+    - 텍스트 파일인 HTML 문서를 브라우저에 렌더링 하기 위한 구조
+
+# 문서 구조화
+
+- 인라인 요소
+    - 글자처럼 취급
+    - `<a> </a>`
+        - `href` 속성으로 하이퍼링크 생성
+    - `<br>`
+        - 텍스트 내 줄 바꿈
+    - `<img>`
+        - `src` 속성으로 이미지 표현
+        - `alt` 이미지 짤리면 나오는 설명
+    - `<span> </span>`
+        - 의미 없는 인라인 컨테이너
+    - `<b> </b> <strong> </strong>`
+        - 굵은 글씨
+        - 잘 안씀
+    - `<i> </i> <em> </em>`
+        - 기울임 글씨
+        - 잘 안씀
+- 블록 요소
+    - 한 줄 모두 사용
+    - `<p> </p>`
+        - 하나의 문단 (paragraph)
+    - `<hr>`
+        - 문단 레벨 요소에서의 주제의 분리
+        - 수평선으로 표현됨 (A Horizontal Rule)
+    - `<ol> </ol>`
+        - 순서가 있는 리스트 (ordered)
+    - `<ul> </ul>`
+        - 순서가 없는 리스트 (unordered)
+    - `<div> </div>`
+        - 의미 없는 블록 레벨 컨테이너
+    - `<pre> </pre>`
+        - HTML에 작성한 내용을 그대로 표현
+        - 고정폭 글꼴이 사용되고 공백문자를 유지
+        - 잘 안씀
+    - `<blockquote> </blockquote>`
+        - 텍스트가 긴 인용문
+        - 들여쓰기를 한 것으로 표현됨
+        - 잘 안씀
+- `<form>`
+    - 입력받은 정보(데이터)를 서버에 제출하기 위해 사용하는 태그
+    - `action`
+        - form을 처리한 서버의 URL (데이터를 보낼 곳)
+    - `method`
+        - form을 제출할 때 사용할 HTTP 메서드 (GET or POST)
+        - `GET`
+            - 드러나는 방식
+        - `POST`
+            - 안에 담아 안보이게 보내는 방식
+    - `enctype`
+        - method가 post인 경우 데이터의 유형
+        - `application/x-www-form-urlencoded`
+            - 기본값
+        - `multipart/form-data`
+            - 파일 전송시
+            - input type이 file인 경우
+        - `text/plain`
+            - 디버깅 용
+            - 잘 안씀
+        - 지금 몰라도됨
+- `<input>`
+    - 다양한 타입을 가지는 입력 데이터 유형과 위젯을 제공하는 태그
+    - `<label>`
+        - input 전에 사용
+        - label을 클릭하여 input 자체의 초점을 맞추거나 활성화 시킬 수 있음
+        - input에 id 속성을, label에 for 속성을 활용하여 상호 연관 시킴
+    - `type`
+        - input의 유형
+        - 일반적인 유형
+            - `text`
+                - 일반 텍스트 입력
+            - `password`
+                - 입력시 값이 보이지 않고 문자를 특수기호로 표현
+            - `email`
+                - 이메일 형식이 아닌 경우 제출 불가
+            - `number`
+                - min, max, step 속성을 활용해 숫자 범위 설정 가능
+            - `file`
+                - accept 속성을 활용하여 파일 타입 지정 가능
+        - 항목 중 선택 유형
+            - label 태그와 함께 사용
+            - 동일 항목에 대해서 같은 name을 지정하고 선택된 항목에 대한 value를 지정해야 함
+            - `checkbox`
+                - 다중 선택
+            - `radio`
+                - 단일 선택
+        - 기타 유형
+            - `color`
+                - color picker
+            - `date`
+                - date picker
+            - `hidden`
+                - 사용자에게 보이지 않는 input
+        - [input 유형 정리](https://developer.mozilla.org/ko/docs/Web/HTML/Element/Input)
+    - `name`
+        - form control에 적용되는 이름
+    - `value`
+        - form control에 적용되는 값
+    - `required`, `readonly`, `autofocus`, `autocomplete`, `disable`등

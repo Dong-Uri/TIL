@@ -102,5 +102,5 @@
     - 특정 확장자들을 무시
 - .gitkeep
     - 반대로 빈 폴더라도 git이 인식하도록 만들어주는 파일
-- [gitignore.io](gitignore.io)
+- [gitignore.io](https://gitignore.io)
     - 운영체제, 개발환경, 언어에 따라 기본적인 .gitignore을 만들어주는 사이트
