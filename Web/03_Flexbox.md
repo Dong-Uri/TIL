@@ -93,4 +93,4 @@
     - `order`
         - 배치 순서 변경
         - 아이템에 적용
-- [Flexbox Foggy](https://flexboxfroggy.com/#ko)
+- [Flexbox Froggy](https://flexboxfroggy.com/#ko)

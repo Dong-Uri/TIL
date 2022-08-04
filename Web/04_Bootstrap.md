@@ -1,0 +1,86 @@
+- [Bootstrap](https://getbootstrap.com/docs/5.2/getting-started/introduction/)
+    - **항상 참조하자!**
+- CDN을 통해 사용 가능
+    - Download의 CDN을 복사
+    - link 부분은 `<head>` 가장 아래에
+    - script 부분은 `<body>` 가장 아래에
+
+# 기본원리
+
+- Spacing
+    - {property}{sides}-{size}
+    - property
+        - `m`
+            - margin
+        - `p`
+            - padding
+    - sides
+        - `t`
+            - top
+        - `b`
+            - bottom
+        - `s`
+            - start
+            - 보통 left
+        - `e`
+            - end
+            - 보통 right
+        - `x`
+            - left and right
+        - `y`
+            - top and bottom
+        - blank
+            - 4면 모두
+    - size
+        - `0`
+            - 0
+        - `1`
+            - 0.25rem
+            - 4px
+        - `2`
+            - 0.5rem
+            - 8px
+        - `3`
+            - 1rem
+            - 16px
+        - `4`
+            - 1.5rem
+            - 24px
+        - `5`
+            - 3rem
+            - 48px
+        - `auto`
+            - 자동
+- Color
+    - `primary`
+        - 파랑
+    - `secondary`
+        - 회색
+    - `success`
+        - 초록
+    - `info`
+        - 하늘
+    - `warning`
+        - 노랑
+    - `danger`
+        - 빨강
+    - `light`
+        - 밝음
+    - `dark`
+        - 어두움
+- Text
+    - `text-decoration-none`
+        - 텍스트 꾸밈 제거
+        - 하이퍼링크 밑줄 제거
+    - `text-start`, `text-center`, `text-end`
+        - 왼쪽, 가운데, 오른쪽 정렬
+    - `fw-bold`, `fw-normal`, `fw-light`
+        - 굵게, 보통, 얇게
+    - `fst-italic`
+        - 기울기
+- Display
+    - `d-incline`, `d-block`, `d-none`, `d-flex`
+        - display 설정
+- Position
+    - `fixed-top`, `fixed-bottom`
+        - 위, 아래 고정
