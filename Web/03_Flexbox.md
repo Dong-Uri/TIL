@@ -1,0 +1,96 @@
+- CSS layout techniques
+    - Display
+    - Position
+    - Float
+    - Flexbox
+    - Grid
+    - 기타
+        - Responsive Web Design
+        - Media Queries
+
+# Float
+
+- 진짜 안씀
+- 박스를 이동시켜 인라인 요소들이 주변을 wrapping 하도록 함
+- Normal flow를 벗어남
+- 속성
+    - `none`
+        - 기본값
+    - `left`
+        - 왼쪽으로 띄움
+    - `right`
+        - 오른쪽으로 띄움
+
+# Flexbox
+
+- 행과 열 형태로 아이템들을 배치
+- 축
+    - main axis
+    - cross axis
+- 구성 요소
+    - Flex Container
+        - `display: flex;` (혹은 `inline-flex`)
+        - flexbox 레이아웃을 형성하는 가장 기본 모델
+        - Flex Item들이 놓이는 영역
+    - Flex Item
+        - Flex Container에 속해 있는 컨텐츠(박스)
+- 속성
+    - `flex-direction`
+        - Main axis 기준 방향 설정
+        - `row`
+            - 좌에서 우로
+        - `row-reverse`
+            - 우에서 좌로
+        - `column`
+            - 상에서 하로
+        - `column-reverse`
+            - 하에서 상으로
+    - `flex-wrap`
+        - 아이템이 컨테이너를 벗어나는 경우 배치 설정
+        - `wrap`
+            - 넘치면 다음 줄로 배치
+        - `nowrap`
+            - 기본값
+            - 그냥 한 줄에 배치
+    - `flex-flow`
+        - 위 두 속성을 쓰는 shorthand
+    - `justify-content`, `align-content`
+        - Main axis / Cross axis를 기준으로 공간 배분
+        - 아이템이 한 줄로 배치되는 경우 align-content는 확인할 수 없음
+        - `flex-start`
+            - 기본값
+            - axis 시작 쪽으로
+        - `flex-end`
+            - axis 끝 쪽으로
+        - `center`
+            - axis 중앙으로
+        - `space-between`
+            - 아이템 사이의 간격을 균일하게
+            - 0 : 1 : 1 : 0
+        - `space-around`
+            - 아이템의 영역을 균일하게
+            - 1 : 2 : 2 : 1
+        - `space-evenly`
+            - 양끝을 포함한 아이템 사이의 간격을 균일하게
+            - 1 : 1 : 1 : 1
+    - `align-items`, `align-self`
+        - 모든 / 개별 아이템을 Cross axis 기준으로 정렬
+        - align-self는 컨테이너가 아닌 개별 아이템에 적용
+        - `stretch`
+            - 기본값
+            - 컨테이너를 늘여 채움
+        - `flex-start`
+            - axis 시작 쪽으로
+        - `flex-end`
+            - axis 끝 쪽으로
+        - `center`
+            - axis 중앙으로
+        - `baseline`
+            - 텍스트 baseline에 기준선을 맞춤
+    - `grow`
+        - 남은 영역 분배
+        - 아이템에 적용
+    - `order`
+        - 배치 순서 변경
+        - 아이템에 적용
+- [Flexbox Foggy](https://flexboxfroggy.com/#ko)

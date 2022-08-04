@@ -13,20 +13,16 @@
         - `<head>`내에 `<link>`를 통해 css를 불러옴
         - `<link rel="stylesheet" href="mystyle.css">`
         - 가장 많이 쓰는 방식
-- 개발자 도구
-    - styles
-        - 해당 요소에 선언된 모든 CSS
-    - computed
-        - 해당 요소에 최종 계산된 CSS
 - 상속
     - 상속을 통해 부모 요소의 속성을 자식에게 상속함
     - 상속 되는 것
-        - Test 관련 요소
+        - Text 관련 요소
         - opacity
         - visibility
     - 상속 되지 않는 것
         - Box moel 관련 요소
         - position 관련 요소
+    - 상속이 되는지는 [MDN](https://developer.mozilla.org/ko/docs/Web/CSS)에서 확인 가능
 
 # CSS Selectors
 
@@ -61,32 +57,10 @@
             - A의 형제 요소 중 바로 뒤에 위치하는 B 요소
     - 의사 클래스/요소(Pseudo Class)
         - 정말 필요한 경우 몇개 만 씀
+    - [CSS Diner](https://flukeout.github.io/)
 
 # 기본 스타일
 
-- 문서 표현
-    - 서체 크기
-        - `font-size`
-    - 서체
-        - `font-family`
-    - 서체 스타일
-        - `font-style`
-        - `font-weight`
-    - 자간
-        - `letter-spacing`
-    - 단어 간격
-        - `word-spacing`
-    - 행간
-        - `line-height`
-    - 컬러
-        - `color`
-    - 배경
-        - `background-image`
-        - `background-color`
-    - 목록
-        - `li`
-    - 표
-        - `table`
 - 크기 단위
     - `px`(픽셀)
         - 고정적인 단위
@@ -118,6 +92,26 @@
         - `hsl(120, 100%, 0)`
         - `hsla(120, 100%, 0, 0.5)`
             - a는 alpha(투명도)
+- 문서 표현
+    - 서체 크기
+        - `font-size`
+    - 서체
+        - `font-family`
+    - 서체 스타일
+        - `font-style`
+        - `font-weight`
+    - 자간
+        - `letter-spacing`
+    - 단어 간격
+        - `word-spacing`
+    - 행간
+        - `line-height`
+    - 컬러
+        - `color`
+    - 배경
+        - `background-image`
+        - `background-color`
+    - 목록(li), 표(table) 관련
 
 # CSS Box bodel
 
@@ -168,6 +162,7 @@
     - 기본적으로 모든 요소의 box-sizing은 content-box
     - 우리가 일반적으로 영역을 볼때는 border까지
         - 그 경우 box-sizing을 border-box로 설정
+        - `box-sizing: border-box;`
 
 # CSS Display
 
@@ -178,6 +173,7 @@
     - 대표적인 요소
         - `div`, `p`, `hr`, `form` 등
     - 블록레벨 요소 정렬
+        - 너비가 지정되있어야 함
         - `margin-right: auto;`
             - 왼쪽 정렬
             - 오른쪽에 마진을 자동으로 줌
