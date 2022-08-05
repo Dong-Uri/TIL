@@ -84,3 +84,66 @@
 - Position
     - `fixed-top`, `fixed-bottom`
         - 위, 아래 고정
+
+# Bootstrap 컴포넌트
+
+- Bootstrap의 다양한 UI 요소
+- Buttons
+    - 클릭 했을 때 어떤 동작이 일어나도록 하는 요소
+- Dropdowns
+    - dropdown, dropdown-menu, dropdown-item 클래스를 활용해 옵션 메뉴를 만들 수 있음
+- Form controls
+    - form-control, form-label 클래스를 활용해 스타일링 할 수 있음
+- Navbar
+    - 네비게이션 바를 제작할 수 있음
+- Carousel
+    - 콘텐츠(사진)을 순환시키는 슬라이드쇼
+- Modal
+    - 사용자와 상호작용 하기 위해서 사용
+    - 현재 페이지 위에 다른 레이어를 띄움
+    - 페이지 이동시 자연스럽게 사라짐
+- Flexbox
+    - d-flex 클래스로 flexbox를 사용할 수 있음
+- Grid card
+    - 그리드를 이용한 카드형태 컨텐츠
+
+# Bootstrap Grid System
+
+- Responsive Web Design
+    - 반응형 웹
+    - 다양한 화면 크기를 가진 디바이스들이 등장함에 따라 등장
+- 요소들의 디자인과 배치에 도움을 주는 시스템
+- 기본 요소
+    - Column
+        - 실제 컨텐츠를 포함하는 부분
+    - Gutter
+        - 칼럼과 칼럼 사이의 공간
+    - Container
+        - Column들을 담은 공간
+- Bootstrap에서는 flexbox로 제작됨
+- container, row, column으로 컨텐츠를 배치하고 정렬
+- Grid system breakpoints
+    - xs
+        - Extra small
+        - 576px 미만
+        - `.col-`
+    - sm
+        - Small
+        - 576px 이상
+        - `.col-sm-`
+    - md
+        - Medium
+        - 768px 이상
+        - `.col-md-`
+    - lg
+        - Large
+        - 992px 이상
+        - `.col-lg-`
+    - xl
+        - Extra large
+        - 1200px 이상
+        - `.col-xl-`
+    - xxl
+        - Extra extra large
+        - 1400px 이상
+        - `.col-xxl-`

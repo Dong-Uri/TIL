@@ -229,3 +229,5 @@
     - 스크롤 위치가 임계점에 이르면 fixed와 같은 상태
 - `top: 40px; left: 40px;`
     - 좌상에서 떨어진 정도를 말함
+
+- [CSS 레이아웃을 배웁시다](https://ko.learnlayout.com/index.html)
