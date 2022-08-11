@@ -1,6 +1,5 @@
-answer = []
 for _ in range(10):
-    _ = input() # 보통 안 쓸 input도 있더라구요
+    t = input()
     array100 = []
     for _ in range(100):
         arr = list(map(int, input().split()))
@@ -21,12 +20,10 @@ for _ in range(10):
     hap_cross2 = 0
     for c in range(100):
         hap_cross1 += array100[c][c] # 첫번째 대각선 합
-        hap_cross2 += array100[c][99-c] # 두번째 대각선 합 (100에서 빼면 안댑니당!)
-    # 현재 최대값보다 높은 합이 있는 지 확인 222222
+        hap_cross2 += array100[c][99-c] # 두번째 대각선 합
+    # 현재 최대값보다 높은 합이 있는 지 확인
     if hap_cross1 > max_hap:
         max_hap = hap_cross1
     if hap_cross2 > max_hap:
         max_hap = hap_cross2
-    answer.append(max_hap)
-for l in range(10):
-    print(f'#{l+1} {answer[l]}')
+    print(f'#{t} {max_hap}')
