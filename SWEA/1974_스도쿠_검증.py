@@ -1,21 +1,21 @@
 T = int(input())
-answer = []
-checkset = set([1,2,3,4,5,6,7,8,9])
-for t in range(T):
-    sudoku = []
+checkset = {1,2,3,4,5,6,7,8,9}
+for t in range(1, T+1):
+    sudoku = [list(map(int, input().split())) for _ in range(9)]
     ans = 1
-    for _ in range(9):
-        line = [int(x) for x in input().split()]
+    for n in range(9):
+        if set(sudoku[n]) != checkset:
+            ans = 0
+            break
+        line = set()
+        for m in range(9):
+            line.add(sudoku[m][n])
         if set(line) != checkset:
             ans = 0
-        sudoku.append(line)
-    for n in range(9):
-        yline = set()
-        for m in range(9):
-            yline.add(sudoku[m][n])
-        if set(yline) != checkset:
-            ans = 0
+            break
     for n in range(3):
+        if ans == 0:
+            break
         for m in range(3):
             group = set()
             for i in range(3):
@@ -23,6 +23,5 @@ for t in range(T):
                     group.add(sudoku[3*n+i][3*m+j])
             if set(group) != checkset:
                 ans = 0
-    answer.append(ans)
-for t in range(T):
-    print('#%d %s'%((t+1), answer[t]))
+                break
+    print(f'#{t} {ans}')

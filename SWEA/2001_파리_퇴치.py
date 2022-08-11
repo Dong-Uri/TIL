@@ -1,11 +1,7 @@
 T = int(input())
-answer = []
-for t in range(T):
+for t in range(1, T+1):
     N, K = map(int, input().split())
-    NxN = []
-    for _ in range(N):
-        Nx = [int(x) for x in input().split()]
-        NxN.append(Nx)
+    NxN = [list(map(int, input().split())) for _ in range(N)]
     ans = 0
     for n in range(N-K+1):
         for m in range(N-K+1):
@@ -15,6 +11,4 @@ for t in range(T):
                     hap += NxN[n+i][m+j]
             if ans < hap :
                 ans = hap
-    answer.append(ans)
-for t in range(T):
-    print('#%d %d'%((t+1), answer[t]))
+    print(f'#{t} {ans}')
