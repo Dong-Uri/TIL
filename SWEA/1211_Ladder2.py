@@ -1,38 +1,41 @@
-import math
-
-answer = []
 for _ in range(10):
-    _ = input()
-    ladder = []
-    for _ in range(99): # 마지막 라인은 빼고 할꺼라 99입니당
-        line = list(map(int, input().split()))
-        ladder.append(line)
-    lastline = list(map(int, input().split()))
-    ladder.append(lastline)
-    min_count = math.inf # 최소 값을 업데이트 할 예정이라 첫 기준값을 무한으로 줌
-    min_x = None # 업데이트된 최소 이동거리의 출발지점 x좌표
-    for _ in range(lastline.count(1)): # 1의 개수 (사다리의 다리 수) 만큼 반복
-        now = [99,lastline.index(1)] # Ladder1과 같이 아래서부터 위로 올라갑니다.
-        lastline[lastline.index(1)] = 2 # 다음번엔 안찾도록 숫자를 바꿈
-        count = 0 # 이동거리 count, 참고로 올라가는 거리는 일정하므로 세지 않을 예정
-        while now[0] != 0 : # 현재 위치가 가장 위에 올라갈때까지 반복
-            if now[1] != 0 and ladder[now[0]][now[1]-1] == 1: # 현재 맨 왼쪽(0)이 아니고 왼쪽에 길이 있다면
-                while now[1] != 0 and ladder[now[0]][now[1]-1] == 1: # 왼쪽 길이 존재하는 동안 계속
-                    now[1] -= 1 # 현재 위치를 왼쪽으로 이동
-                    count += 1 # 이동거리를 늘린다.
-                now[0] -= 1 # 이후 위로 한번 이동 (안하면 다음 반복 때 다시 오른쪽으로 갑니다.)
-            elif now[1] != 99 and ladder[now[0]][now[1]+1] == 1: # 현재 맨 오른쪽(99)이 아니고 오른쪽에 길이 있다면
-                while now[1] != 99 and ladder[now[0]][now[1]+1] == 1: # 오른쪽 길이 존재하는 동안 계속
-                    now[1] += 1 # 현재 위치를 오른쪽으로 이동
-                    count += 1 # 이동거리를 늘린다.
-                now[0] -= 1 # 이후 위로 한번 이동 (안하면 다음 반복 때 다시 오른쪽으로 갑니다.)
-            else: # 오른쪽 왼쪽에 길이 없다면
-                now[0] -= 1 # 올라갑니다
-        if count < min_count: # 이동거리가 기존 최소 이동거리보다 짧았다면
-            min_count = count # 최소 이동거리 업데이트
-            min_x = now[1] # 출발 x좌표 업데이트
-        elif count == min_count: # 이동거리가 기존 최소 이동거리와 같다면
-            mix_x = max(min_x, now[1]) # 더 큰 x좌표로 저장 (문제조건임)
-    answer.append(min_x) # 가장 위에 도달했을때 위치를 정답에 저장
-for l in range(10):
-    print(f'#{l+1} {answer[l]}')
+    t = input()
+    ladder = [list(map(int, input().split())) for _ in range(100)]
+
+    # 사다리의 시작 위치들의 인덱스를 찾음
+    start = []
+    for i in range(100):
+        if ladder[0][i] == 1:
+            start += [i]
+
+    # 아무리 이동해도 전체 칸을 모두 돌진 않으므로 전체 칸 개수로 초기화
+    min_cnt = 10000
+    for s in start:
+        now = [0, s] # 모든 시작 지점에 대해 시작
+        cnt = 0 # 카운트는 좌우로 이동할때만 함
+        while now[0] < 99:
+
+            # 왼쪽으로 길이 있는 경우
+            if now[1] != 0 and ladder[now[0]][now[1]-1] == 1: # 단축평가로 에러가 나지 않음
+                while now[1] != 0 and ladder[now[0]][now[1]-1] == 1:
+                    now[1] -= 1
+                    cnt += 1
+                now[0] += 1 # 무한루프 방지
+
+            # 오른쪽으로 길이 있는 경우
+            elif now[1] != 99 and ladder[now[0]][now[1] + 1] == 1:  # 단축평가로 에러가 나지 않음
+                while now[1] != 99 and ladder[now[0]][now[1] + 1] == 1:
+                    now[1] += 1
+                    cnt += 1
+                now[0] += 1  # 무한루프 방지
+
+            # 좌우에 모두 길이 없는 경우 == 그냥 올라감
+            else:
+                now[0] += 1
+
+        # 카운드가 최소인지 확인후 좌표 저장 (같아도 큰 좌표이므로 저장)
+        if cnt <= min_cnt:
+            min_cnt = cnt
+            min_x = s
+
+    print(f'#{t} {min_x}')

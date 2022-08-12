@@ -1,21 +1,36 @@
 T = int(input())
-alien_num_list = ['ZRO', 'ONE', 'TWO', 'THR', 'FOR', 'FIV', 'SIX', 'SVN', 'EGT', 'NIN']
-answer = []
-for _ in range(T):
-    _ = input()
-    testcase_line = input()
-    testcase = list(testcase_line.split())
-    num_list = []
-    for alien_num in testcase:
-        num_list.append(alien_num_list.index(alien_num))
-        # alien_num_list에서 외계숫자와 인덱스가 일치하므로 인덱스를 num_list에 append함
-    num_list.sort() # 정렬
+num_list = ['ZRO', 'ONE', 'TWO', 'THR', 'FOR', 'FIV', 'SIX', 'SVN', 'EGT', 'NIN']
+for t in range(1, T+1):
+    _, N = input().split()
+    N = int(N)
+    testcase = list(input().split())
+    cnt_list = [0] * 10
+    for i in range(N):
+        if testcase[i] == 'ZRO':
+            cnt_list[0] += 1
+        elif testcase[i] == 'ONE':
+            cnt_list[1] += 1
+        elif testcase[i] == 'TWO':
+            cnt_list[2] += 1
+        elif testcase[i] == 'THR':
+            cnt_list[3] += 1
+        elif testcase[i] == 'FOR':
+            cnt_list[4] += 1
+        elif testcase[i] == 'FIV':
+            cnt_list[5] += 1
+        elif testcase[i] == 'SIX':
+            cnt_list[6] += 1
+        elif testcase[i] == 'SVN':
+            cnt_list[7] += 1
+        elif testcase[i] == 'EGT':
+            cnt_list[8] += 1
+        elif testcase[i] == 'NIN':
+            cnt_list[9] += 1
     ans = []
-    for num in num_list:
-        ans.append(alien_num_list[num]) # 이번엔 인덱스에서 외계숫자로
-    answer.append(' '.join(ans)) # ans는 출력조건의 문자열로 바꿔 저장해둠
-for l in range(T):
-    print(f'#{l+1} {answer[l]}')
-
-# 테스트 하는데 뭔가 문제가 있다.
-# Notion에 적어놓았음
+    idx = 0
+    for i in cnt_list:
+        for j in range(i):
+            ans += [num_list[idx]]
+        idx += 1
+    print(f'#{t}')
+    print(*ans)
