@@ -13,15 +13,13 @@ for _ in range(10):
 
         # 왼쪽으로 길이 있는 경우
         if now[1] != 0 and ladder[now[0]][now[1]-1] == 1: # 단축평가로 에러가 나지 않음
-            while now[1] != 0 and ladder[now[0]][now[1]-1] == 1:
-                now[1] -= 1
-            now[0] -= 1 # 무한루프 방지
+            ladder[now[0]][now[1]] = 0
+            now[1] -= 1
 
         # 오른쪽으로 길이 있는 경우
         elif now[1] != 99 and ladder[now[0]][now[1]+1] == 1: # 단축평가로 에러가 나지 않음
-            while now[1] != 99 and ladder[now[0]][now[1]+1] == 1:
-                now[1] += 1
-            now[0] -= 1 # 무한루프 방지
+            ladder[now[0]][now[1]] = 0
+            now[1] += 1
 
         # 좌우에 모두 길이 없는 경우 == 그냥 올라감
         else:

@@ -1,11 +1,7 @@
 T = int(input())
-answer = []
-for t in range(T):
+for t in range(1, T+1):
     N = int(input())
-    NxN = []
-    for _ in range(N):
-        Nx = [x for x in input().split()]
-        NxN.append(Nx)
+    NxN = [list(input().split()) for _ in range(N)]
     ans = ''
     for n in range(N):
         ans += '\n'
@@ -17,6 +13,4 @@ for t in range(T):
         ans += ' '
         for m in range(N):
             ans += NxN[m][N-1-n]
-    answer.append(ans)
-for t in range(T):
-    print('#%d%s'%((t+1), answer[t]))
+    print(f'#{t} {ans}')
