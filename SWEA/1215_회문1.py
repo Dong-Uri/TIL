@@ -1,5 +1,4 @@
-answer = []
-for _ in range(10):
+for t in range(1, 11):
     palindrome_len = int(input())
     word_pan = []
     palindrome_num = 0 # 회문 개수
@@ -21,6 +20,4 @@ for _ in range(10):
                 check_word += word_pan[i+j][k]
             if check_word == check_word[::-1]: # 단어를 역순으로 해도 같은지 == 회문인지
                 palindrome_num += 1
-    answer.append(palindrome_num)
-for l in range(10):
-    print(f'#{l+1} {answer[l]}')
+    print(f'#{t} {palindrome_num}')
