@@ -31,5 +31,5 @@ for _ in range(N):
     else:
         pass
 
-# 동일한 문제
+# 하위 문제
 # 10845_큐
