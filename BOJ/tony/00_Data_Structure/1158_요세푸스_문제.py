@@ -8,3 +8,6 @@ while lst:
     lst.remove(lst[remv])           # 리스트에서 제거
     remv += K-1                     # remove 때문에 하나 덜 증가
 print('<' + ', '.join(yosep) + '>')
+
+# 하위 문제
+# 11866_요세푸스_문제_0
