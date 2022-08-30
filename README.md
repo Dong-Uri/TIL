@@ -13,6 +13,8 @@
 
 - [Web](https://github.com/Dong-Uri/TIL/tree/master/Web)
 
+- [Django](https://github.com/Dong-Uri/TIL/tree/master/Django)
+
 ### Algorithm
 
 - [Algorithm](https://github.com/Dong-Uri/TIL/tree/master/Algorithm)
