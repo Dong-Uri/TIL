@@ -1,19 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-  <p>{{ pick }}는 {{ pick|length }}글자입니다.</p>
-  <p>{{ foods|join:", " }}</p>
+  <p>내 픽은 {{pick}}이고, {{pick|length}}글자야</p>
+  <p>{{foods|join:', '}}</p>
 
-  <p>메뉴판</p>
+  <h3>메뉴판</h3>
   <ul>
     {% for food in foods %}
-      <li>{{ food }}</li>
+      <li>{{food}}</li>
     {% endfor %}
   </ul>
 
-  {% comment %} 
-    <p>주석</p>
-    <h2>여러 줄 주석</h2>
-  {% endcomment %}
   <a href="{% url 'articles:index' %}">뒤로가기</a>
 {% endblock content %}

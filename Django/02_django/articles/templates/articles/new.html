@@ -2,12 +2,13 @@
 
 {% block content %}
   <h1>NEW</h1>
-  <form action="{% url 'articles:create' %}" method="GET">
+  <form action="{% url 'articles:create' %}" method="POST">
+    {% csrf_token %}
     <label for="title">Title: </label>
     <input type="text" name="title" id="title"><br>
     <label for="content">Content: </label>
-    <input type="text" name="content" id="content"><br>
-    <input type="submit">
+    <textarea type="text" name="content" id="content"></textarea><br>
+    <input type="submit" value="작성">
   </form>
   <hr>
   <a href="{% url 'articles:index' %}">돌아가기</a>
