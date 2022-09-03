@@ -1,6 +1,5 @@
 # TIL
 - Today I Learned
-- 오늘 내가 공부한 것
 - 1일 1커밋
 
 ## Study
