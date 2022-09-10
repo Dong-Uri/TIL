@@ -107,3 +107,61 @@
         - variable routing을 통해 pk를 받음
     - `<a href="{% url 'articles:detail' article.pk %}">`
         - url과 함께 pk를 같이 줌
+
+- DELETE
+
+    - 특정 글을 조회 후 삭제하므로 pk 활용
+        ```python
+        def delete(request, pk):
+            article = Article.objects.get(pk=pk)
+            article.delete()
+            return redirect('articles:index')
+        ```
+    - DB에 영향을 미치므로 POST method 사용
+        ```html
+        <form action="{% url 'articles:delete' article.pk %}" method="POST">
+            {% csrf_token %}
+            <input type="submit" value="DELETE">
+        </form>
+        ```
+
+- UPDATE
+
+    - 사용자의 입력을 받을 페이지를 렌더링 하는 함수
+        ```python
+        def edit(request, pk):
+            article = Article.objects.get(pk=pk)
+            context = {
+                'article': article,
+            }
+            return render(request, 'articles/edit.html', context)
+        ```
+        - input 태그 안에 value 속성을 사용해 기존에 입력 되어 있던 데이터를 출력
+            - textarea 태그는 value 속성이 없으므로 내부 값으로 작성
+    - 사용자가 입력한 데이터를 전송 받아 DB에 저장하는 함수
+        ```python
+        def update(request, pk):
+            article = Article.objects.get(pk=pk)
+            article.title = request.POST.get('title')
+            article.content = request.POST.get('content')
+            article.save()
+            return redirect('articles:detail', article.pk)
+        ```
+
+- Admin site
+
+    - Django의 가장 강력한 기능 중 하나인 automatic admin interface
+    - 관리자 페이지
+        - 서버의 관리자가 활용하기 위한 페이지
+    - `python manage.py createsuperuser`
+        - username과 password를 입력해 관리자 계정 생성
+            - email은 선택사항이므로 입력하지 않아도 됨
+            - 비밀번호는 보안상 입력이 보이지 않음
+    - admin.py
+        ```python
+        from django.contrib import admin
+        from .models import Article
+
+        admin.site.register(Article)
+        ```
+        - 모델의 record를 보기 위해 등록 필요
