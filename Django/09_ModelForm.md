@@ -104,3 +104,5 @@
             model = Article
             fields = '__all__'
     ```
+    - widget 내의 maxlength는 input 태그에서 입력을 못하게 함
+        - 데이터베이스와 연관된 것은 아님

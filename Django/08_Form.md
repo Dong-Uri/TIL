@@ -54,3 +54,45 @@
     - [목록](https://docs.djangoproject.com/ko/3.2/ref/forms/widgets/#built-in-widgets)
     - textarea 위젯
         - `CharField(widget=forms.Textarea)`
+
+- 수동으로 form 작성
+
+    ```html
+    <form action="#">
+        <div>
+        {{ form.title.errors }}
+        {{ form.title.label_tag}}
+        {{ form.title }}
+        </div>
+        <div>
+        {{ form.content.errors }}
+        {{ form.content.label_tag}}
+        {{ form.content }}
+        </div>
+    </form>
+    ```
+    - [Rendering fields manually](https://docs.djangoproject.com/ko/3.2/topics/forms/#rendering-fields-manually)
+
+    ```html
+    <form action="#">
+        {% for field in form %}
+        {{ field.errors }}
+        {{ field.label_tag }}
+        {{ field }}
+        <br>
+        {% endfor %}
+    </form>
+    ```
+    - [Looping over the form’s fields](https://docs.djangoproject.com/ko/3.2/topics/forms/#looping-over-the-form-s-fields)
+
+    ```html
+    <form action="#">
+        {% bootstrap_form form %}
+        {% buttons %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+        {% endbuttons %}
+    </form>
+    ```
+    - [django-bootstrap-v5](https://django-bootstrap-v5.readthedocs.io/en/latest/)
+        - Django에서 부트스트랩을 편하게 쓰게 해주는 써드 파티 라이브러리
+    - `forms.py`에서 클래스를 추가
