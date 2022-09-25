@@ -2,9 +2,7 @@
 - Today I Learned
 - 1일 1커밋
 
-## Study
-
-### Coding
+## Coding
 
 - [Basic](https://github.com/Dong-Uri/TIL/blob/master/Basic)
 
@@ -14,7 +12,7 @@
 
 - [Django](https://github.com/Dong-Uri/TIL/tree/master/Django)
 
-### Algorithm
+## Algorithm
 
 - [Algorithm](https://github.com/Dong-Uri/TIL/tree/master/Algorithm)
 
