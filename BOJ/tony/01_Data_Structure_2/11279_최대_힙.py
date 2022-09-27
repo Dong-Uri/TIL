@@ -1,3 +1,5 @@
+# 원래는 import heapq로 풀어야함
+
 import sys
 N = int(sys.stdin.readline().rstrip())
 heap = [0] * 100001
@@ -39,3 +41,6 @@ for _ in range(N):
                 i //= 2
             else:
                 break
+
+# 하위 문제
+# 1927_최소_힙

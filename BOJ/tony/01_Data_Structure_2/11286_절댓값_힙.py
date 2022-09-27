@@ -1,3 +1,5 @@
+# 원래는 import heapq로 풀어야함
+
 import sys
 N = int(sys.stdin.readline().rstrip())
 heap = [0] * 100001
