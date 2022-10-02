@@ -17,7 +17,3 @@
 - [SWEA](https://github.com/Dong-Uri/TIL/tree/master/SWEA)
 
 - [BOJ](https://github.com/Dong-Uri/TIL/tree/master/BOJ)
-
-# Info
-
-![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=Dong-Uri&show_icons=true&theme=shades-of-purple)
