@@ -10,6 +10,8 @@
 
 - [Django](https://github.com/Dong-Uri/TIL/tree/master/Django)
 
+- [DB](https://github.com/Dong-Uri/TIL/tree/master/DB)
+
 ## Algorithm
 
 - [Algorithm](https://github.com/Dong-Uri/TIL/tree/master/Algorithm)
