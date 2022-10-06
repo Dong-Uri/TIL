@@ -51,13 +51,29 @@
 - CREATE TABLE
     - 데이터베이스에 새 테이블을 만듦
     - id 컬럼은 직접 기본 키 역할의 컬럼을 정의하지 않으면 자동으로 rowid라는 컬럼으로 만들어짐
+    ```sql
+    CREATE TABLE contacts (
+        name TEXT NOT NULL,
+        age INTEGER NOT NULL,
+        email TEXT NOT NULL UNIQUE
+    );
+    ```
 
 - ALTER TABLE
     - 기존 테이블의 구조를 수정(변경)
     - ALTER TABLE RENAME
     - ALTER TABLE RENAME COLUMN
     - ALTER TABLE ADD COLUMN
+        - 테이블에 기존 데이터가 있는 경우 추가되는 컬럼에 값이 없기 때문에 NULL이 작성되는데 NOT NULL 제약조건이 있으면 에러가 발생함
+        - DEFAULT 제약 조건을 사용하여 기존 데이터들에게 컬럼값을 주어 해결할 수 있음
     - ALTER TABLE DROP COLUMN
+        - FOREIGN KEY(외래 키) 제약조건에서 사용되는 경우, PRIMARY KEY인 경우, UNIQUE 제약 조건이 있는 경우 삭제 불가
+    ```sql
+    ALTER TABLE table_name RENAME TO new_table_name;
+    ALTER TABLE table_name RENAME COLUMN column_name TO new_column_name;
+    ALTER TABLE table_name ADD COLUMN column_definition;
+    ALTER TABLE table_name DROP COLUMN column_name;
+    ```
 
 - DROP TABLE
     - 데이터베이스에서 테이블을 제거
