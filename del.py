@@ -85,8 +85,8 @@ def score():
 
 starting = start(1)
 AUTH_KEY = starting['auth_key']
-time = starting['time']
-while time < 595:
+status = 'ready'
+while status == 'ready':
     users = user_info()
 
     commands = []
@@ -118,8 +118,9 @@ while time < 595:
                 if abs(grade_a - grade_b) < 30:
                     pairs.append([wait[i]['id'], wait[j]['id']])
                     waiting[j] = 1
-    time = match(pairs)['time']
-    print(time)
+    result = match(pairs)
+    print(result)
+    status = result['status']
 
 print(AUTH_KEY)
 print(score())
