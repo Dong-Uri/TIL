@@ -1,7 +1,7 @@
 import requests
 
 BASE_URL = 'https://huqeyhi95c.execute-api.ap-northeast-2.amazonaws.com/prod'
-X_AUTH_TOKEN = 'd5ca5af014252dad190007f4eccf88e1'
+X_AUTH_TOKEN = '9befd74203c7f82c381394d3e03e9e08'
 
 def start(scenario):
     headers = {
@@ -83,20 +83,21 @@ def score():
     
     return response
 
-starting = start(1)
+scenario = 2
+starting = start(scenario)
 AUTH_KEY = starting['auth_key']
-status = 'ready'
-while status == 'ready':
-    users = user_info()
 
-    commands = []
+grade = [5000] * 901
+time = 0
+cg = {'status': 'ready'}
+
+while True:
     for result in game_result():
-        for user in users:
-            if user['id'] == result['win']:
-                commands.append({'id': user['id'], 'grade': user['grade'] + 50 - result['taken']})
-            elif user['id'] == result['lose']:
-                commands.append({'id': user['id'], 'grade': user['grade'] - 50 + result['taken']})
-    change_grade(commands)           
+        if result['taken'] <= 10:
+            continue
+        rate = int(1.2 ** (40 - result['taken']))
+        grade[result['win']] += rate
+        grade[result['lose']] -= rate
 
     wait = sorted(waiting_line(), key= lambda x: x['from'])
     wait_num = len(wait)
@@ -106,21 +107,29 @@ while status == 'ready':
         for i in range(len(wait)-1):
             if waiting[i]:
                 continue
-            for user in users:
-                if user['id'] == wait[i]['id']:
-                    grade_a = user['grade']
-                    break
-            for j in range(i+1, len(wait)):
-                for user in users:
-                    if user['id'] == wait[j]['id']:
-                        grade_b = user['grade']
+            else:
+                for j in range(i+1, len(wait)):
+                    if abs(grade[i] - grade[j]) < 100:
+                        pairs.append([wait[i]['id'], wait[j]['id']])
+                        waiting[j] = 1
                         break
-                if abs(grade_a - grade_b) < 30:
-                    pairs.append([wait[i]['id'], wait[j]['id']])
-                    waiting[j] = 1
-    result = match(pairs)
-    print(result)
-    status = result['status']
+    mr = match(pairs)
+    print(mr)
+    if mr['time'] == 595:
+        if scenario == 1:
+            n = 30
+        else:
+            n = 900
+        commands = []
+        for i in range(1, n+1):
+            if grade[i] < 0:
+                commands.append({'id': i, 'grade': 0})
+            elif grade[i] > 9999:
+                commands.append({'id': i, 'grade': 9999})
+            else:
+                commands.append({'id': i, 'grade': grade[i]})
+        cg = change_grade(commands)
+    if mr['status'] != 'ready' or cg['status'] != 'ready':
+        break
 
-print(AUTH_KEY)
 print(score())

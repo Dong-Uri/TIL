@@ -1,0 +1,63 @@
+1번 시나리오
+
+40 - result['taken']
+100 * (mr['time'] - wait[i]['from'])
+{'status': 'finished', 'efficiency_score': '86.7989', 'accuracy_score1': '73.1111', 'accuracy_score2': '53.1498', 'score': '220.9522'}
+
+(40 - result['taken']) ** 2
+100 * ((mr['time'] - wait[i]['from']) // 3 + 1)
+{'status': 'finished', 'efficiency_score': '44.5646', 'accuracy_score1': '74.8889', 'accuracy_score2': '56.0541', 'score': '192.7832'}
+
+(40 - result['taken']) ** 2
+100 * (1.2 ** (mr['time'] - wait[i]['from']))
+{'status': 'finished', 'efficiency_score': '71.7679', 'accuracy_score1': '81.1111', 'accuracy_score2': '52.204', 'score': '217.3925'}
+
+40 - result['taken']
+300
+{'status': 'finished', 'efficiency_score': '99.8997', 'accuracy_score1': '70.4444', 'accuracy_score2': '48.9081', 'score': '223.1428'}
+
+40 - result['taken']
+100
+{'status': 'finished', 'efficiency_score': '58.5901', 'accuracy_score1': '73.5556', 'accuracy_score2': '51.1495', 'score': '196.5181'}
+
+(40 - result['taken']) ** 2
+300
+{'status': 'finished', 'efficiency_score': '54.8689', 'accuracy_score1': '76.6667', 'accuracy_score2': '52.263', 'score': '198.6107'}
+
+(40 - result['taken']) ** 2
+500
+{'status': 'finished', 'efficiency_score': '54.8466', 'accuracy_score1': '80.6667', 'accuracy_score2': '55.5791', 'score': '207.3722'}
+
+2번 시나리오
+
+40 - result['taken']
+50 * (mr['time'] - wait[i]['from'])
+{'status': 'finished', 'efficiency_score': '86.5699', 'accuracy_score1': '29.2267', 'accuracy_score2': '54.4459', 'score': '169.663'}
+
+40 - result['taken']
+300
+{'status': 'finished', 'efficiency_score': '99.8766', 'accuracy_score1': '30.6548', 'accuracy_score2': '54.1529', 'score': '181.6706'}
+
+40 - result['taken']
+200
+{'status': 'finished', 'efficiency_score': '99.81', 'accuracy_score1': '29.9889', 'accuracy_score2': '54.1453', 'score': '180.809'}
+
+40 - result['taken']
+150
+{'status': 'finished', 'efficiency_score': '99.6673', 'accuracy_score1': '29.9365', 'accuracy_score2': '54.2864', 'score': '180.8014'}
+
+40 - result['taken']
+100
+{'status': 'finished', 'efficiency_score': '99.0971', 'accuracy_score1': '28.7677', 'accuracy_score2': '54.4457', 'score': '179.1337'}
+
+40 - result['taken']
+50
+{'status': 'finished', 'efficiency_score': '97.9127', 'accuracy_score1': '30.8188', 'accuracy_score2': '53.7575', 'score': '179.8217'}
+
+40 - result['taken']
+10
+{'status': 'finished', 'efficiency_score': '94.8517', 'accuracy_score1': '29.2674', 'accuracy_score2': '54.5285', 'score': '176.4365'}
+
+1.2 ** (40 - result['taken'])
+100
+{'status': 'finished', 'efficiency_score': '99.2932', 'accuracy_score1': '37.5617', 'accuracy_score2': '54.1146', 'score': '189.4461'}
