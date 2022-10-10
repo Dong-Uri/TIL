@@ -1,0 +1,84 @@
+- sqlite3
+    - `sqlite3`
+        - 시작하기
+    - `.open mydb.sqlite3`
+        - 데이터베이스 파일 열기
+        - `sqlite3 mydb.sqlite3`
+            - 이렇게 시작하면서 바로 열 수도 있음
+    - `.exit`
+        - 종료하기
+    - `.help`
+        - 이외에 다양한 명령어 확인
+    - CSV 파일을 SQLite 테이블로 가져오기
+        - 데이터베이스 파일을 연 후
+        - `.mode csv`
+        - `.import user.csv users`
+
+- SELECT
+    - `SELECT column1, column2, FROM table_name;`
+    - `*(asterisk)`는 모든 데이터
+    - ORDER BY
+        - `ORDER BY column_1 ASC, column_2 DESC;`
+        - ASC는 오름차순(기본값), DESC는 내림차순
+        - SQLite는 NULL을 다른 값보다 작은 것으로 간주
+    - DISTINCT
+        - `SELECT DISTINCT select_list FROM table_name`
+        - 중복된 행을 제거
+        - SQLite는 NULL 값을 중복으로 간주
+    - WHERE
+        - `WHERE search_condition;`
+        - 특정 검색 조건을 지정
+        - 비교연산자(comparison operators)
+            - `=`
+            - `<>` or `!=`
+            - `<`
+            - `>`
+            - `<=`
+            - `>=`
+        - 논리연산자(logical operators)
+            - `LIKE`
+                - 패턴 일치를 기반으로 데이터를 조회
+                - 기본적으로 대소문자를 구분하지 않음
+                - 와일드카드(wildcards)를 제공
+                    - `%(percent)`
+                        - 0개 이상의 문자가 올 수 있음
+                    - `_(underscore)`
+                        - 단일(1개) 문자가 있음
+            - `IN`
+                - 값이 값 목록 결과에 있는 값과 일치하는지 확인
+                - 부정하려면 `NOT IN` 사용
+            - `BETWEEN`
+                - 값이 값 범위에 있는지 테스트
+                - 부정하렴녀 `NOT BETWEEN` 사용
+    - LIMIT
+        - `LIMIT row_count;`
+        - 쿼리에서 반환되는 행 수를 제한
+        - `OFFSET`
+            - 함께 사용하면 특정 지정된 위치에서부터 데이터를 조회할 수 있음
+    - GROUP BY
+        - `GROUP BY column_1, column_2;`
+        - 특정 그룹이 묶인 결과를 생성
+        - 각 그룹에 대해 집계 함수(aggregate function)를 적용 가능
+            - 값 집합의 최대값, 최소값, 평균, 합계 및 개수를 계산
+            - `AVG()`
+            - `COUNT()`
+            - `MAX()`
+            - `MIN()`
+            - `SUM()`
+
+- INSERT
+    - `INSERT INTO table_name (column1, column2, ...) VALUES (value1, value2, ...);`
+    - 새 행을 테이블에 삽입
+    - 컬럼 목록을 생략하는 경우 값 목록의 모든 컬럼에 대한 값을 지정해야 함
+
+- UPDATE
+    - `UPDATE table_name SET column_1 = new_value_1, column_2 = new_value_2 WHERE search_condition;`
+    - 테이블에 있느 기존 행의 데이터를 업데이트함
+    - WHERE 절을 생략하면 테이블의 모든 행에 있는 데이터를 업데이트
+    - ORDER BY 및 LIMIT 절도 사용 가능
+
+- DELETE
+    - `DELETE FROM table_name WHERE search_condition;`
+    - 테이블에서 행을 제거
+    - WHERE 절을 생략하면 테이블의 모든 행을 삭제
+    - ORDER BY 및 LIMIT 절도 사용 가능
