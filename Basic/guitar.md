@@ -37,6 +37,8 @@
     - 해당 변수 모두 잡기
 - ctrl + D
     - 변수 하나씩 잡기
+- ctrl + shift + P
+    - command 입력창
 
 pycharm이 디버깅에 조금 더 용이함
 
