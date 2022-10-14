@@ -1,0 +1,82 @@
+- sqlite3에서 csv 데이터 import
+    - `sqlite3 db.sqlite3`
+    - `.mode csv`
+    - `.import users.csv users_user`
+    - `.exit`
+
+- shell_plus 실행 후 진행
+
+- Count
+    - `User.objects.count()`
+    - `.count()`
+        - QuerySet과 일치하는 데이터베이스의 개체 수를 나타내는 정수를 반환
+        - `len(User.objets.all())`와 같음
+
+- Sorting
+    - `User.objects.order_by('age').values('first_name', 'age')`
+    - `.order_by()`
+        - QuerySet의 정렬을 재정의
+        - 기본적으로 오름차순이며 '-'(하이픈)을 작성하면 내림차순
+        - '?'를 입력하면 랜덤 정렬
+        - 중복해서 작성할 경우 마지막 호출만 적용됨
+    - `.values()`
+        - 모델 인스턴스가 아닌 딕셔너리 요소들을 가진 QuerySet을 반환
+        - 필드를 입력하지 않을 경우 레코드의 모든 필드에 대한 key와 value를 출력
+
+- Filtering
+    - `User.objects.distinct().values('country')`
+    - `.distinct()`
+        - 중복 제거
+    - `User.objects.filter(age__gte=30).values('first_name', 'age')`
+    - Field lookups
+        - QuerySet 메서드 filter(), exclude(), get()에 대한 키워드 인자로 사용됨
+        - 필드명 뒤에 "double-underscore" 이후 작성함
+            - `field__lookuptype=value`
+        - [docs](https://docs.djangoproject.com/en/3.2/ref/models/querysets/#field-lookups)
+        - `__gte`, `__gt`, `__lte`, `__lt`
+            - 이상, 초과, 이하, 미만
+        - `__contains`, `__startswith`, `__endswith`
+            - 문자열 포함, 시작, 끝
+            - SQL에서의 %와 같음
+            - '_'(under score)는 별도로 정규 표현식 사용
+        - `__in`
+            - 리스트 포함
+            - 포함하지 않은 조회는 filter 대신 exclude 사용
+            - `.exclude()`
+                - 주어진 매개변수와 일치하지 않는 객체를 포함하는 QuerySet 반환
+    - `User.objects.order_by('age').values('first_name', 'age')[:10]`
+        - 조회 개수를 제한할 때는 슬라이싱 사용
+    - `User.objects.filter(Q(age=30) | Q(last_name='김'))`
+    - 'Q' object
+        - 기본적으로 filter()와 같은 메서드의 키워드 인자는 AND statement를 따름
+        - 더 복잡한 쿼리를 실행해야 하는 경우가 있드면 Q 객체가 필요
+        - `from django.db.models import Q`
+            - shell_plus에서는 생략 가능
+        - '&' 및 '|'를 사용하여 Q 객체를 결합
+
+- Grouping
+    - `.aggregate()`
+        - 전체 queryset에 대한 값을 계산
+        - 딕셔너리를 반환
+        - Aggregation functions
+            - Avg, Count, Max, Min, Sum 등
+            - [docs](https://docs.djangoproject.com/en/3.2/ref/models/querysets/#aggregation-functions)
+            - `from django.db.models import Avg`
+                - shell_plus에서는 생략 가능
+        - `User.objects.filter(age__gte=30).aggregate(Avg('age'))`
+            - `{'age__avg': 37.65909090909091}`
+        - 딕셔너리 key 이름을 수정할 수도 있음
+        - `User.objects.filter(age__gte=30).aggregate(avg_value=Avg('age'))`
+            - `{'avg_value': 37.65909090909091}`
+    - `.annotate()`
+        - 쿼리의 각 항목에 대한 요약 값을 계산
+        - SQL의 GROUP BY에 해당
+        - `User.objects.values('country').annotate(Count('country'))`
+            - `<QuerySet [{'country': '강원도', 'country__count': 14}, ...]>`
+        - 마찬가지로 딕셔너리 key 이름을 수정할 수도 있음
+        - `User.objects.values('country').annotate(num_of_country=Count('country'))`
+            - `<QuerySet [{'country': '강원도', 'num_of_country': 14}, ...]>`
+        - 한번에 여러 값을 계산해 조회할 수도 있음
+        - 관계가 N:1인 경우 참조도 가능
+        - `Article.objects.annotate(number_of_comment=Count('comment'), pub_date=Count('comment', filter=Q(comment__created_at__lte'='2000-01-01')))`
+            - 각 게시글의 댓글 개수와 2000-01-01보다 나중에 작성된 댓글의 개수를 함께 조회
