@@ -80,3 +80,15 @@
         - 관계가 N:1인 경우 참조도 가능
         - `Article.objects.annotate(number_of_comment=Count('comment'), pub_date=Count('comment', filter=Q(comment__created_at__lte'='2000-01-01')))`
             - 각 게시글의 댓글 개수와 2000-01-01보다 나중에 작성된 댓글의 개수를 함께 조회
+
+- Improve Query
+    - 섣부른 최적화를 하지 말자!
+    - annotate
+    - select_related
+        - 1:1 또는 N:1 참조 관계에서 사용
+        - SQL에서의 INNER JOIN절을 활용
+            - SQL의 INNER JOIN을 사용하여 참조하는 테이블의 일부를 가져오고, SELECT FROM을 통해 관련된 필드를 가져옴
+    - prefetch_related
+        - M:N 또는 N:1 역참조 관계에서 사용
+        - SQL이 아닌 Python을 통한 JOIN이 진행됨
+    - 자세한 내용은 사라짐
