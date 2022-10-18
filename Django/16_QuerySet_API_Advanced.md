@@ -53,6 +53,7 @@
         - `from django.db.models import Q`
             - shell_plus에서는 생략 가능
         - '&' 및 '|'를 사용하여 Q 객체를 결합
+        - 'F' object도 존재함
 
 - Grouping
     - `.aggregate()`
@@ -70,6 +71,7 @@
             - `{'avg_value': 37.65909090909091}`
     - `.annotate()`
         - 쿼리의 각 항목에 대한 요약 값을 계산
+            - values()와 함께 사용됨
         - SQL의 GROUP BY에 해당
         - `User.objects.values('country').annotate(Count('country'))`
             - `<QuerySet [{'country': '강원도', 'country__count': 14}, ...]>`
@@ -83,6 +85,10 @@
 
 - Improve Query
     - 섣부른 최적화를 하지 말자!
+    - 쿼리를 날릴 때 Django가 DB를 hit하는 횟수를 줄임
+        - Lazy Loading
+            - ORM은 정말 필요한 시점에만 SQL을 호출하는 특징을 가짐
+        - 뭘 원하는지 알면 한번에 다 가져올 것
     - annotate
     - select_related
         - 1:1 또는 N:1 참조 관계에서 사용
