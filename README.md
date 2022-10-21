@@ -10,7 +10,9 @@
 
 - [Django](https://github.com/Dong-Uri/TIL/tree/master/Django)
 
-- [DB](https://github.com/Dong-Uri/TIL/tree/master/DB)
+- [Database](https://github.com/Dong-Uri/TIL/tree/master/Database)
+
+- [Javascript](https://github.com/Dong-Uri/TIL/tree/master/Javascript)
 
 ## Algorithm
 
