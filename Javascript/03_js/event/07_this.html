@@ -11,6 +11,48 @@
   <button id="arrow">arrow function</button>
 
   <script>
+    // 1. 단순 호출
+    const myFunc = function () {
+      console.log(this) 
+    }
+    myFunc()
+
+    // 2. Method
+    const myObj = {
+      data: 1,
+      myFunc() {
+        console.log(this)
+        console.log(this.data)
+      }
+    }
+    myObj.myFunc()
+
+    // 3-1. Nested (function)
+    const myObj = {
+      numbers: [1],
+      myFunc() {
+        console.log(this) // myObj
+        this.numbers.forEach(function (number) {
+          console.log(number) // 1
+          console.log(this) // window
+        })
+      }
+    }
+    myObj.myFunc()
+
+    // 3-2. Nested (arrow function)
+    const myObj = {
+      numbers: [1],
+      myFunc() {
+        console.log(this) // myObj
+        this.numbers.forEach(function (number) {
+          console.log(number) // 1
+          console.log(this) // window
+        })
+      }
+    }
+    myObj.myFunc()
+
     // this와 addEventListener
     const functionButton = document.querySelector('#function')
     const arrowButton = document.querySelector('#arrow')
