@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>프로젝트</title>
+  <style>
+    /* 스타일은 수정하지 않습니다. */
+    .ball {
+      width: 10rem;
+      height: 10rem;
+      margin: .5rem;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 10rem;
+      font-size: xx-large;
+      font-weight: bold;
+      color: white;
+    }
+    .ball-container {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <h1>로또 추천 번호</h1>
+  <button id="lotto-btn">행운 번호 받기</button>
+  <div id="result"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+  <script>
+    const btn = document.querySelector('#lotto-btn')
+    btn.addEventListener('click', function (event) {
+
+      // 공이 들어갈 컨테이너 생성
+      const ballContainer = document.createElement('div')
+      ballContainer.classList.add('ball-container')
+
+      // 랜덤한 숫자 6개를 만들기
+      const numbers = _.sampleSize(_.range(1, 46), 6)
+      console.log(numbers)
+
+      // 공 만들기
+      numbers.forEach((number) => {
+        const ball = document.createElement('div')
+        ball.innerText = number
+        ball.classList.add('ball')
+        ball.style.backgroundColor = 'crimson'
+        ballContainer.appendChild(ball)
+      })
+
+      // 공 컨테이너는 결과 영역의 자식으로 넣기
+      const resultDiv = document.querySelector('#result')
+      resultDiv.appendChild(ballContainer)
+    })
+  </script>
+</body>
+</html>
