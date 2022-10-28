@@ -1,0 +1,123 @@
+# Git Advance
+
+- CRLF 에러시
+    - `git config --global core.autocrlf true`
+
+- `git log --oneline`
+    - git log를 한줄로 보기
+- `git log --oneline --graph`
+    - git log를 한줄로 브랜치 그래프와 함께 보기
+- `git commit -am '{한 줄 메시지}`
+    - add commit 한번에
+    - 한번이라도 git으로 관리가 된 경우에만 사용 가능
+
+- Git undoing
+    - Git 작업 되돌리기
+    - 작업 상태에 따라 세 단계로 분리
+        - Working Directory 작업 단계
+            - Working Directory에서 수정한 파일을 수정 전(직전 커밋)으로 되돌리기
+            - `git restore {파일 이름}`
+                - 이미 버전 관리가 되고 있는 파일만 되돌리기 가능
+                - 되돌리면 해당 내용을 복원할 수 없음
+        - Staging Area 작업 단계
+            - Staging Area에 반영된 파일을 Working Directory로 되돌리기 (== Unstage)
+            - `git rm --cached {파일 이름}`
+                - root-commit이 없는 경우 사용
+                    - Git 저장소에 커밋이 없는 경우
+            - `git restore --staged {파일 이름}`
+                - root-commit이 있는 경우 사용
+                    - Git 저장소에 커밋이 있는 경우
+        - Repository 작업 단계
+            - 커밋을 완료한 파일을 Staging Area로 되돌리기
+            - `git commit --amend`
+                - 새로 올라온 내용이 없다면, 직전 커밋의 메시지만 수정
+                - 새로 올라온 내용이 있다면, 직전 커밋을 덮어쓰기
+                    - i
+                        - 끼워넣기(insert) 상태가 됨
+                        - 덮어쓰기만 하는 경우는 메시지를 수정 안하므로 안해도 됨
+                    - :wq
+                        - 저장하고 나가기
+                    - git commit에 -m(한 줄 메시지 넣기)를 빼거나 vi를 통해 파일 수정을 할때도 마찬가지
+
+- Git reset
+    - 프로젝트를 특정 커밋(버전) 상태로 되돌림
+    - 특정 커밋으로 되돌아 갔을 때, 해당 커밋 이후로 쌓았던 커밋들은 전부 사라짐
+    - `git reset [옵션] {커밋 ID}`
+        - 옵션은 soft, mixed, hard 중 하나를 작성
+            - `--soft`
+                - 되돌아간 커밋 이후의 파일들을 Staging Area로 돌려놓음
+            - `--mixed`
+                - 되돌아간 커밋 이후의 파일들을 Working Directory로 돌려놓음
+                - 기본값
+            - `--hard`
+                - 되돌아간 커밋 이후의 파일들을 모두 Working Directory에서 삭제 (주의)
+                    - `git reflog`
+                        - reset하기 전의 과거 커밋 내역을 모두 조회 가능
+                        - 해당 커밋으로 reset하면 hard 옵션으로 삭제된 파일도 복구 가능
+                - 기존의 Untracked 파일은 사라지지 않고 Untracked로 남아있음
+        - 커밋 ID는 되돌아가고 싶은 시점의 커밋 ID를 작성
+
+- Git revert
+    - 이전 커밋을 취소하고 새로운 커밋을 생성함
+    - `git revert {커밋 ID}`
+        - 커밋 ID는 취소하고 싶은 커밋 ID를 작성
+    - CONFLICT 발생시 파일 수정 후 다시 커밋
+
+- Branch
+    - 여러 갈래로 작업 공간을 나누어 독립적으로 작업할 수 있도록 도와주는 Git 도구
+    - Branch는 Commit을 가리키는 하나의 pointer
+    - 장점
+        1. 브랜치는 독립 공간을 형성해 원본(master)에 대해 안전함
+        2. 하나의 작업은 하나의 브랜치로 나누어 진행되어 체계적인 개발이 가능함
+        3. Git은 브랜치를 만드는 속도가 굉장히 빠르고, 적은 용량을 소모함
+    - 조회
+        - `git branch`
+            - 로컬 저장소의 브랜치 목록 확인
+        - `git branch -r`
+            - 원격 저장소의 브랜치 목록 확인
+        - `git branch -a`
+            - 모든 저장소의 브랜치 목록 확인
+    - 생성
+        - `git branch {브랜치 이름}`
+            - 새로운 브랜치 생성
+        - `git branch {브랜치 이름} {커밋 ID}`
+            - 특정 커밋 기준으로 브랜치 생성
+    - 삭제
+        - `git branch -d {브랜치 이름}`
+            - 병합된 브랜치만 삭제 가능
+        - `git branch -D {브랜치 이름}`
+            - 강제 삭제
+    - git switch
+        - 현재 브랜치에서 다른 브랜치로 이동하는 명령어
+        - `git switch {브랜치 이름}`
+            - 다른 브랜치로 이동
+        - `git switch -c {브랜치 이름}`
+            - 브랜치를 새로 생성 및 이동
+        - `git switch -c {브랜치 이름} {커밋 ID}`
+            - 특정 커밋 기준으로 브랜치 생성 및 이동
+        - switch하기 전에 해당 브랜치의 변경 사항을 반드시 커밋해야함
+            - 커밋하지 않은 상태에서 switch하면 이동 후에도 해당 파일이 그대로 남아있게 됨
+    - git merge
+        - 분기된 브랜치들을 하나로 합치는 명령어
+        - `git merge {합칠 브랜치 이름}`
+        - 병합에는 세 종류가 존재
+            - Fast-Forward
+                - 브랜치가 가르키는 커밋을 앞으로 이동시키는 방법
+            - 3-way Merge
+                - 각 브랜치의 커밋 두 개와 공통 조상 하나를 사용하여 병합하는 방법
+            - Merge Conflict
+                - 충돌이 발생한 부분을 작성자가 직접 해결하는 방법
+                - VScode가 제공하는 기능이 있지만 거의 사용하지 않음
+    - HEAD
+        - 현재 브랜치의 최신 커밋을 가리킴
+    - `git checkout -t origin/{브랜치 이름}`
+        - remote에 있는 브랜치를 local로 가져오기
+    - `git push origin {브랜치 이름}`
+        - local에 있는 브랜치를 remote에 만들기
+        - 이후에는 연결이 되어 git push로 사용 가능 (안되는디?)
+    - pull request를 통해 협업이나 기여를 할 수 있음
+        
+- Git workflow
+    - git-flow
+    - github-flow
+    - gitlab-flow
