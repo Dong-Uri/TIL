@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h1>{{ num }}</h1>
+    <h3>x2 : {{ doubleNum }}</h3>
+    <button @click="plusNum">+</button>
+    <button @click="minusNum">-</button>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+  <script>
+    const app = new Vue({
+      el : '#app',
+
+      data: {
+        num : 0,
+        // doubleNum : 0,
+      },
+
+      methods : {
+        plusNum(){
+          this.num += 1
+        },
+        minusNum(){
+          this.num -= 1
+        },
+      },
+
+      watch : {
+        num(newValue, oldValue) {
+          console.log(oldValue,newValue)
+        }
+      },
+
+      computed : {
+        doubleNum() {
+          return this.num * 2
+        }
+      }
+
+      // methods: {
+      //   inputFunc(event){
+      //     // console.log(event)
+      //     this.message = event.target.value
+      //   }
+      // }
+    })
+  </script>
+
+</body>
+</html>
