@@ -18,7 +18,6 @@ export default {
   methods: {
     clickDetail: function (video) {
       this.$emit('click-detail', video)
-      console.log(video)
     }
   },
 }
