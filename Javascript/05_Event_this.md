@@ -1,0 +1,43 @@
+- Event
+
+  - 프로그래밍하고 있는 시스템에서 일어나는 사건(action) 혹은 발생(occurrence)
+  - 클릭, 키보드 키 입력, 브라우저 닫기, 데이터 제출, 텍스트 복사 등
+  - Event object
+    - 네트워크 활동이나 사용자와의 상호작용 같은 사건의 발생을 알리기 위한 객체
+  - `EventTarget.addEventListener(type, listener)`
+    - 지정한 Event가 대상에 전달될 때마다 호출할 함수를 설정
+    - type
+      - 반응 할 Event 유형을 나타내는 대소문자 구분 문자열
+      - input, click, submit 등
+      - [mdn](https://developer.mozilla.org/ko/docs/Web/Events)
+    - listener
+      - 지정된 타입의 Event를 수신한 객체
+      - JavaScript function 객체 (콜백 함수)
+      - 콜백 함수는 발생한 Event의 데이터를 가진 Event 객체를 유일한 매개변수로 받음
+  - `event.preventDefault()`
+    - 현재 Evnet의 기본 동작을 중단
+    - HTML 요소의 기본 동작을 작동하지 않게 막음
+
+- this
+  - 어떠한 object를 가리키는 키워드
+  - JavaScript는 해당 함수 호출 방식에 따라 this에 바인딩 되는 객체가 달라짐
+  - 함수를 호출할 때 함수가 어떻게 호출 되었는지에 따라 동적으로 결정
+  - 전역 문맥에서의 this
+    - 브라우저의 전역 객체인 window를가리킴
+  - 함수 문맥에서의 this
+    - 함수를 호출한 방법에 의해 결정
+    - 단순 호출
+      - 전역 객체를 가리킴
+      - 브라우저에서는 window, Node.js에서는 global
+    - Method(Function in Object, 객체의 메서드로서)
+      - 메서드로 선언하고 호출한다면, 객체의 메서드이므로 해당 객체가 바인딩
+    - Nested(Function 키워드)
+      - forEach의 콜백 함수에서의 this가 메서드의 객체를 가리키지 못하고 전역 객체 window를 가리킴
+      - 단순 호출 방식으로 사용되었기 때문
+    - Nested(화살표 함수)
+      - 메서드의 객체를 잘 가리킴
+      - 화살표 함수에서 this는 자신을 감싼 정적 범위
+      - 한 단계 상위 scope의 context를 바인딩
+  - 함수 내의 함수 상황에서 화살표 함수를 쓰는 것을 권장
+  - addEventListener의 콜백 함수는 function 키워드를 사용
+    - 화살표 함수의 경우 상위 스코프를 지칭하기 때문에 window 객체가 바인딩
