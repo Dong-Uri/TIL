@@ -2,6 +2,7 @@
   <div id="app">
     <h1>{{ message }}</h1>
     <h2>입력된 문자의 길이는 {{ messageLength }}</h2>
+    <h3>X2 : {{ doubleLength }}</h3>
     <input
       type="text"
       @keyup.enter="changeMessage"
@@ -24,12 +25,16 @@ export default {
     },
     messageLength() {
       return this.$store.getters.messageLength
+    },
+    doubleLength() {
+      return this.$store.getters.doubleLength
     }
   },
   methods: {
     changeMessage() {
       const newMessage = this.inputData
       this.$store.dispatch('changeMessage', newMessage)
+      this.inputData = null
     }
   }
 }

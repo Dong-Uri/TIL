@@ -10,6 +10,9 @@ export default new Vuex.Store({
   getters: {
     messageLength(state) {
       return state.message.length
+    },
+    doubleLength(state, getters) {
+      return getters.messageLength * 2
     }
   },
   mutations: {
