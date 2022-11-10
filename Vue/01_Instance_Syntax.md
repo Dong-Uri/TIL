@@ -1,0 +1,116 @@
+- Vue instance
+
+  - new 연산자를 사용해 생성자 함수 호출
+    - `const vm = new Vue()`
+    - 함수이름은 반드시 대문자로 시작
+    - 생성자 함수를 사용할 때는 반드시 new 연산자를 사용
+  - el(element)
+    - Vue instance와 DOM을 mount(연결)하는 옵션
+    - HTML id 혹은 class와 마운트 가능
+    - 연결되지 않은 DOM 외부는 Vue의 영향을 받지 않음
+  - data
+    - Vue instance의 데이터 객체 혹은 인스턴스 속성
+    - 데이터 객체는 반드시 기본 객체 `{}`(Object)여야 함
+    - 정의된 속성은 interpolation`{{}}`을 통해 view에 렌더링 가능
+  - method
+    - Vue instance의 method들을 정의하는 곳
+    - method를 호출하여 data 변경 가능
+    - 메서드를 정의 할 때 Arrow Function을 사용하면 안됨
+      - this 함수가 선언될 때 상위 객체인 window를 가리키게 됨
+  - computed
+    - computed 객체에 정의한 함수를 페이지가 최초로 렌덩링 될 때 호출하여 계산
+    - 계산 결과가 변하기 전까지 함수를 재호출하는 것이 아닌 계산된 값을 반환
+  - watch
+    - 특정 데이터의 변화를 감지하는기능
+    - 감시할 대상 data를 지정하고 data가 변할 시 실행 할 함수를 정의
+      - 첫 번째 인자는 변동 전 data
+      - 두 번째 인자는 변동 후 data
+    - Array, Object의 내부 요소 변경 감지를 위해서는 deep 속성 추가 필요
+  - filters
+    - 텍스트 형식화를 적용할 수 있는 필터
+    - interpolation 혹은 v-bind를 이용할 때 사용 가능
+    - 자바스크립트 표현식 마지막에 `|`(파이프)와 함께 추가되어야 함
+    - chaining 가능
+
+- Template Syntax
+
+  - 렌더링 된 DOM을 기본 Vue instance의 data에 선언적으로 바인딩할 수 있는 HTML 기반 template syntax를 사용
+
+- Directives
+
+  - v-접두사가 있는 특수 속성
+  - 표현식의 값이 변경될 때 반응적으로 DOM에 적용하는 것
+  - v-text
+    - Template Interpolation과 함께 가장 기본적인 바인딩 방법
+      - DTL과 동일한 형태로 작성
+      - 모두 일반 텍스트롤 표현
+    - {{}}와 동일한 역할
+      - 정확히 동일한 역할은 아님
+  - v-html
+    - RAW HTML을 표현할 수 있는 방법
+      - data와 바인딩
+      - HTML의 기본 속성이 아닌 Vue가 제공하는 특수 속성의 값으로 data를 작성
+    - 사용자가 입력하거나 제공하는 컨텐츠에는 절대 사용 금지
+      - XSS 공격
+  - v-show
+    - 표현식에 작성된 값에 따라 element를 보여 줄 것인지 결정
+    - 대상 element의 display 속성을 기본 속성과 none으로 toggle
+    - 요소 자체는 항상 DOM에 렌더링
+      - 화면에서 사라졌을 뿐, DOM에는 존재
+    - Expensive initial load, cheap toggle
+      - 표현식 결과와 관계 없이 렌더링 되므로 초기 렌더링 비용은 높을 수 있음
+      - display 속성 변경으로 표현 여부를 판단하므로 toggle 비용은 적음
+  - v-if
+    - v-show와 방법은 동일하지만 DOM에서 사라짐
+    - v-if, v-else-if, v-else 형태로 사용
+    - Cheap initial load, expensive toggle
+      - 표현식 결과가 false이면 렌더링이 안하므로 초기 렌더링 비용은 낮을 수있음
+      - 표현식 값이 자주 변경되면 잦은 재 렌더링으로 비용이 증가할 수 있음
+  - v-for
+    - for in 형식으로 작성
+    - 반복한 데이터 타입에 모두 사용 가능
+    - `(char, index)`형태로 index를 함께 출력 가능
+    - v-for 사용 시 반드시 key 속성을 각 요소에 작성
+      - vue 화면 구성 시 이전과 달라진 점을 확인 하는 용도로 활용
+      - key는 중복되어서는 안됨
+      - 각 요소가 고유한 값을 가지고 있다면 생략 가능
+  - v-on
+    - `:`을 통해 전달받은 인자를 확인
+    - addEventListener의 첫 번째 인자와 동일한 값들로 구성
+    - 이벤트가 발생하면 할당되 표현식 실행
+    - `@` shortcut 제공
+  - v-bind
+    - HTML 기본 속성에 Vue data를연결
+    - class의 경우 다양한 형태롤 연결 가능
+      - 조건부 바인딩
+        - `{'class Name': '조건 표현식'}`
+        - 삼항 연산자도 가능
+      - 다중 바인딩
+        - `['JS 표현식', 'JS 표현식', ...]`
+    - `:` shortcut 제공
+  - v-model
+    - Vue instance와 DOM의 양방향 바인딩
+    - Vue data 변경 시 v-model로 연결된 사용자 입력 element에도 적용
+    - IME에 의해 한글이 한박자 늦음
+      - `@input`으로 해결 가능
+
+- [Sytle Guide](https://v2.vuejs.org/v2/style-guide/)
+
+  - 우선순위
+    - A. 필수(Essential)
+      - 오류를 방지하는 데 도움이 되므로 어떤 경우에도 규칙을 학습하고 준수
+    - B. 적극 권장(Strongly Recommended)
+      - 규칙을 어겨도 코드는 여전히 실행되겠지만, 규칙 위반은 드물어야 함
+    - C. 권장(Recommended)
+      - 일관성을 보장하도록 임의의 선택을 할 수 있음
+    - D. 주의 필요(Use with Caution)
+      - 잠재적 위험 특성을 고려함
+
+- v-for는 한상 key와 함께 사용하기
+
+  - 내부 컴포넌트의 상태를 일관되게 유지하기 위해 v-for에 항상 key를 사용하기
+  - 데이터의 예측 가능한 행동을 유지 시키기 (객체 불변성)
+
+- v-for를 쓴 엘리먼트에 절대 v-if를 사용하지 말기
+  - 목록의 항목을 필터링할 때
+  - 숨김 목록의 렌더링을 피할 때
