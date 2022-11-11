@@ -88,6 +88,7 @@
     - `git config --global user.name '이름'`
     - `git config --global user.email '이메일'`
     - global을 local로 변경시 해당 장소에 대해서만 설정을 바꿀 수 있다.
+    - `--unset`, `--unset-all` 옵션으로 정보 삭제
     - `git config --list`로 정보 확인
 
 제어판에서 자격 증명 관리를 찾아 자격 삭제 후 재설정 가능
