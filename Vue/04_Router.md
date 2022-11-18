@@ -1,0 +1,6 @@
+- Routing
+  - 네트워크에서 경로를 선택하는 프로세스
+  - SSR에서는 Routing(URL)에 대한 결정권을 서버가 가짐
+  - SPA/CSR에서는 서버가 하나의 HTML(index.html)만을 제공
+    - 즉, 하나의 URL만 가질 수 있음
+    - 유저의 사용성 관점에서 routing 필요
