@@ -5,7 +5,7 @@
 
 ## Coding
 
-- [Basic](https://github.com/Dong-Uri/TIL/blob/master/Basic)
+- [CS](https://github.com/Dong-Uri/TIL/blob/master/CS)
 
 - [Python](https://github.com/Dong-Uri/TIL/tree/master/Python)
 
