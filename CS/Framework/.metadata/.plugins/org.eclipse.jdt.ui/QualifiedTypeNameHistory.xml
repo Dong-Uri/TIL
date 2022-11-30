@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Parameter"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Type"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Constructor"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="java.lang.Class"/>
+<fullyQualifiedTypeName name="com.ssafy.annotation2.MyTarget"/>
+<fullyQualifiedTypeName name="com.ssafy.annotation3.SourceAnno"/>
+<fullyQualifiedTypeName name="com.ssafy.annotation4.Marker"/>
+<fullyQualifiedTypeName name="com.ssafy.annotation4.SingleValue1"/>
+<fullyQualifiedTypeName name="com.ssafy.annotation4.SingleValue2"/>
+<fullyQualifiedTypeName name="java.lang.annotation.Target"/>
+<fullyQualifiedTypeName name="java.lang.annotation.ElementType"/>
+<fullyQualifiedTypeName name="java.lang.annotation.Retention"/>
+<fullyQualifiedTypeName name="java.lang.annotation.RetentionPolicy"/>
+<fullyQualifiedTypeName name="com.ssafy.annotation5.ClassAnno"/>
+<fullyQualifiedTypeName name="com.ssafy.annotation5.RunAnno1"/>
+<fullyQualifiedTypeName name="java.lang.reflect.Method"/>
+<fullyQualifiedTypeName name="com.ssafy.annotation5.RunAnno2"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.mvc.Controller"/>
+<fullyQualifiedTypeName name="org.springframework.web.servlet.ModelAndView"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="javax.servlet.ServletException"/>
+<fullyQualifiedTypeName name="org.springframework.web.util.WebUtil"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMapping"/>
+</qualifiedTypeNameHistroy>
