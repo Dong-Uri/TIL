@@ -1,0 +1,83 @@
+- 분석이 분명하고, 쉬워야함
+- 설계가 탄탄해야 함
+
+- OOAD
+
+  - Object-Oriented Analysis and Design
+  - 객체기반으로 개발되는 S/W에 대한, 분석과 설계 방법
+  - Diagram 기반 모델링 언어를 통한 문서화
+
+- OOP
+
+  - 절차지향
+    - 유지보수가 어려움
+    - 협업이 어려움
+  - 객체지향
+    - 유지보수성이 좋음
+    - 재사용성이 좋음
+    - 협업 가능
+  - 클래스
+    - 클래스로 객체를 구현
+  - Server Code
+    - Client 요청을 받으면, 처리해주는 코드
+  - Client Code
+    - Server Code에게 일을 요청하는 코드
+  - 캡슐화
+    - 데이터와 필드를 넣음
+    - 허용하는 데이터, 필드로만 데이터 제어 가능
+    - 허용하지 않는 데이터, 필드 접근을 막음, 은닉
+    - Server Code가 허용한 방법대로 Client Code를 작성하도록 유도
+  - 상속
+    - Super Class / Derived Class 혹은 Base Class / Sub Class
+    - OOP 상속은 부모/자식 관계로 보기 어려움
+    - 중복 코드는 코드 변경시 모두 수정이 필요하고 버그를 유발
+    - Overriding
+      - Super Class 메서드 재정의
+    - Overloading
+      - 같은 이름의 메서드이지만, 다른 Argument로 함수 구분
+  - 다형성
+    - 한 객체가 다양한 타입을 담을 수 있는 형태
+  - 추상화
+
+- UML
+
+  - Unified Modeling Language
+  - 객체지향설계 표기법의 기준
+  - SW 품질인증
+  - UML Diagram
+    - Structure Diagram (구조적)
+      - 시간에 상관없는 정적인 구조
+      - Class Diagram
+        - 객체들 관계, 속성, 동작들을 표현
+        - Association
+          - Realization
+            - 구현화
+            - Interface를 실제로 구현
+          - Generalization
+            - 일반화
+            - 공통적인것을 추출하여 분류를 만들어 냄
+          - Dependency
+            - 외부 클래스를 _임시적으로_ 사용하는 관계
+          - Association
+            - 다른 클래스를 사용하는데, *참조를 유지*하는 방식
+          - Aggregation
+            - 구분이 확실치 않아 Association라고 불러도 됨
+            - 단순한 배열인 경우 Aggregation으로 표현
+          - Composition
+            - 함께 성성되며, 함께 소멸되는 관계
+            - 반드시 존재해야만 하는 관계
+    - Behavior Diagram (행동)
+      - 시간에 따라 변경이 일어나는 것을 표현
+      - Use Case Diagram
+        - 요구사항을 파악하는 용도
+        - Usecase는 요구사항을 개념화하는 목적
+      - Sequence Diagram
+        - 여러 객체들이 어떻게 상호작용을 하는지를 나타내는 다이어그램
+        - 위에서 아래로 시간 순서를 나타냄
+      - Activity
+        - Flow Chart와 매우 유사한 Diagram
+        - 친숙하고 가독성이 좋음
+      - State Machine
+        - 이벤트 발생시 상태 변화를 표현
+        - 어떤 동작을 하였을 때 상태를 나타냄
+        - 임베디드에서 자주 사용
