@@ -1,0 +1,52 @@
+- Code Readavility
+
+  - 코드 가독성을 높임
+  - 소스코드를 논리적으로 이해하기 편한 정도
+  - 예시
+    - 한 단계의 들여쓰기
+      - 함수로 빼서 들여쓰기를 없애줌
+    - else 제거
+      - return을 사용하여 필요없는 else를 지움
+    - 하나의 역할을 하는 메소드
+      - 여러 역할을 하는 메소드를 단계별로 분리
+    - 임시변수 제거
+      - 의미 파악에 도움이 되지 않는 변수 제거
+    - 추상화 Level 맞추기
+      - 더 이해하기 쉽도록
+  - [마틴파울러](https://refactoring.com/catalog/)
+    - Rename Variable
+      - 이름을 짓는데 공들이기
+      - flag 보다는 found가 명확
+    - Replace Magic Literal
+      - 매직넘버 치환
+      - 예측할 수 있는 코드로
+      - 상수 의존관계
+        - 상수끼리 관계가 있다면 관계를 표시
+    - Change Function Declaration
+      - 명확한 함수명 사용
+    - Extract Function
+      - 함수 세분화
+    - Inline Function
+      - 필요하다면, 1회성 함수를 inline 시킴
+    - Extract Variable
+      - 식을 이해하기 쉽게 하기 위해서 이름을 붙임
+      - 배열 역시 직접 사용하기보단 이해를 위해 이름을 붙임
+    - Encapsulate Variable
+      - 캡슐화 할 것
+    - Introduce Parameter Object
+      - 파라미터 객체를 만들어 사용
+    - Replace Control Flag with Break
+      - Control Flag 제거
+    - Replace Conditional with polymorphism
+      - 다형성을 이용해 switch문을 제거
+      - 타입 코드에 대한 switch문이면 상속과 다형성으로 처리
+  - [구루](https://refactoring.guru/)
+
+- Pycharm Refactor
+
+  - Rename
+    - 함수나 변수 이름 변경
+  - Extract Method
+    - 특정 부분을 함수로 빼기
+  - Inline
+    - 임시변수 제거
