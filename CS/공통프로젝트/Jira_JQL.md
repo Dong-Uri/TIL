@@ -19,9 +19,9 @@
       - Epic
         - 큰 틀
         - Epic name을 지정하게 됨
+      - Story
       - Task
         - Sub task는 안쓰기도 함
-      - Story
       - Bug
 
 - JQL
