@@ -1,0 +1,10 @@
+- AlexNet, 2012
+- DQN, 2013
+- Encoder / Decoder, 2014
+- Adam Optimizer, 2014
+- Generative Adversarial Network, 2015
+- Residual Networks, 2015
+- Transformer, 2017
+- BERT(fine-tuned NLP models), 2018
+- BIG Language Models(GPT-X), 2019
+- Self Supervised Learning, 2020

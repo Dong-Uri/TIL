@@ -1,0 +1,24 @@
+- Regularization
+
+  - Early Stopping
+    - Note that we need additional validation data to do early stopping
+  - Parameter Norm Penalty
+    - It adds smoothness to the function space
+  - Data Augmentation
+    - More data are always welcomed
+    - However, in most cases, training data are given in advance
+    - In such cases, we need data augmentation
+  - Noise Robustness
+    - Add random noises inputs or weights
+  - Label Smoothing
+    - Mix-up constructs augmented training examples by mixing both input and output of two randomly selected training data
+    - CutMix constructs augmented training examples by mixing inputs with cut and paste and outputs with soft labels of two randomly selected training data
+  - Dropout
+    - In each forward pass, randomly set some neurons to zero
+  - Batch Normalization
+    - Batch normalization compute the empirical mean and variance independently for each dimension (layers) and normalize
+    - There are different variances of normalizations
+      - Batch Norm
+      - Layer Norm
+      - Instance Norm
+      - Group Norm

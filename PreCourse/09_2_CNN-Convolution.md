@@ -1,0 +1,17 @@
+- Convolution
+  - Continous convolution
+  - Discrete convolution
+  - 2D image convolution
+- RGB Image Convolution
+- Stack of Convolutions
+- Convolutional Neural Networks
+  - CNN consists of convolution layer, pooling layer, and fully connected layer
+    - Convolution and pooling layer: feature extraction
+    - Fully connected layer: decision making (e.g., classification)
+- Stride
+- Padding
+- Convolution Arithmetic
+- 1x1 Convolution
+  - Dimension reduction
+  - To reduce the number of parameters while increasing the depth
+  - e.g., bottleneck architecture

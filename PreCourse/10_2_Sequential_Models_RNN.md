@@ -1,0 +1,20 @@
+- Sequential Model
+  - Naive sequence model
+  - Autoregressive model
+  - Markov model (first-order autoregressive model)
+  - Latent autoregressive model
+- Recurrent Neural Network
+  - Short-term dependencies
+  - Long-term dependencies
+- Long Short Term Memory
+  - Forget Gate
+    - Decide which information to throw away
+  - Input Gate
+    - Decide which information to store in the cell state
+  - Update cell
+    - Update the cell state
+  - Output Gate
+    - Make output using the updated cell state
+- Gated Recurrent Unit
+  - Simpler architecture with two gates (reset gate and update gate)
+  - No cell state, just hidden state
