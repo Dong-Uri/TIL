@@ -1,0 +1,58 @@
+- Why?
+
+  - Issue Tracking
+    - Project Management
+  - Agile
+    - Scrum
+      - 스프린트라는 업무 주기를 반복
+      - Scrum meeting
+    - Kanban
+      - 칸반 보드
+  - DevOps
+  - SRE
+    - Site Reliability Engineering
+
+- How?
+
+  - Create issue
+    - Issue type
+      - Epic
+        - 큰 틀
+        - Epic name을 지정하게 됨
+      - Story
+      - Task
+        - Sub task는 안쓰기도 함
+      - Bug
+
+- JQL
+
+  - Jira Query Language
+  - SQL과 비슷한 문법
+  - Basic & Advanced Query
+  - JQL Operators
+    - `=`, `!=`, `>`, `>=`
+    - `in`, `not in`
+    - `~`(contains), `!~`
+    - `is empty`, `is not empty`, `is null`, `is not null`
+    - 예시
+      - `project = "DP" and issuetype in (Epic, Story) ORDER BY created DESC`
+  - JQL Dates
+    - Relative Dates
+      - Current(Today) 기준 `-2w`, `-6d`, `1d`등
+    - 예시
+      - `project = "DP" and issuetype in (Epic, Story) and updated > -1w`
+  - JQL Functions
+    - `endOfDay()`, `startOfDay()`
+    - `endOfWeek()`(Saturday), `startOfWeek()`(Sunday), `startOfWeek(1d)`(Monday)
+    - `endOfMonth()`, `startOfMonth()`, `endOfYear()`, `startOfYear()`
+    - `currentUser()`
+    - 예시
+      - `project = "DP" and issuetype in (Epic, Story) and updated > startOfWeek(1d) and updated < endOfWeek(-1d)`
+  - Filter share
+    - 나의 미완료 이슈
+      - `project = "DP" and assignee = currentUser() and resolution = Unresolved`
+    - Save Filter
+      - 필터를 생성하여 공유 가능
+  - Dashboard, Gadget
+  - Agile Board
+    - Scrum, Kanban 선택하여 생성 가능
