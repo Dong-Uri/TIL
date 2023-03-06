@@ -138,3 +138,12 @@
   ```
 
   - `roslaunch <패키지명> <launch명>`
+
+- ROS catkin 명령어
+
+  - `catkin_create_pkg`
+    - Catkin 빌드 시스템으로 패키지 자동 생성
+  - `catkin_make`
+    - Catkin 빌드 시스템에 기반을 둔 빌드
+  - `catkin_init_workspace`
+    - Catkin 빌드 시스템 작업 폴더 초기화
