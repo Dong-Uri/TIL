@@ -205,3 +205,143 @@ node = aStar(start, stop, map)
 while node:
     print(node.getPoint())
     node = node.getParent()
+
+#3
+
+A_star 알고리즘 이란?
+
+    최단 경로 찾기
+    네비게이션, 게임, 자율 주행 등 많은 분야에서 활용한다.
+    경로 찾기에서 다잌스트라 보다 더 최적화 된 알고리즘이다.
+    맨해튼 거리로 출발지,Node 와 도착지 사이의 거리 값을 계산한다.
+
+맨해튼 거리(Manhattan distance)
+
+    두 점 사이의 거리를 대각선 거리가 아닌 세로, 가로 값의 합으로 계산한다.
+    ex) 시작점 : (x1, y1) , 도착점 : (x2, y2)
+    맨해튼 거리 d = | x1 - x2 | + | y1 - y2 | 
+
+4-State node
+
+    close : 이미 가본 node, 확인 한 곳open : 발견된 node, 앞으로 가봐야 할 후보지Empty : 미 발견된 node, 영역Block : 갈 수 없는 곳. ex) 벽
+
+알고리즘 진행 과정
+
+    도착한 Node는 Close 한다.주변 노드는 다음과 같은 조건으로 State를 변화한다.
+        Empty : Open으로 바꾼다.BLOCK, Close 는 그대로Open : G가 더 작으면 부모노드를 바꾸고 그렇지 않으면 그대로 둔다.최소 F 값으로 이동
+        F = G(출발지로 부터의 거리) + H(도착지까지의 거리)
+    도착 경로까지 1~3 반복A_star 도착 노드에서 부모경로를 따라 가면 완성된 최단 경로를 알 수 있다.
+
+A_star 알고리즘 코드를 알고 싶다면?
+
+→ https://github.com/sweetchild222/vanilla-algorithm
+
+    시작, 종료 노드, 맵 생성
+
+map= [
+    0, 0, 0, 0, 0, 0, 0, 0,
+    0, 0, 0, 0, -1, 0, 0, 0,
+    0, 0, 0, 0, -1, 0, 0, 0,
+    0, 0, 0, 0, -1, 0, 0, 0,
+    0, 0, 0, 0, -1, 0, 0, 0,
+    0, 0, 0, 0, 0, 0, 0, 0]
+
+# -1 : BLOCK(벽)
+
+start = Point(2, 3)
+stop = Point(6, 3)
+
+map = Map(data, width, height, stop)
+
+    a* 알고리즘
+
+def aStar(start, stop, nodeMap):
+
+    openList = OpenList()
+
+    node = map.getNode(start)
+
+    while True:
+
+        node.setClose()
+
+        drawer.draw(map, start, stop)
+
+        if node.getPoint() == stop:
+            return node
+
+        childList = lookAround(node, nodeMap)
+
+        openList.append(childList)
+
+        node = openList.minCostFNode()
+
+        if node is None:
+            return None
+
+def neighborBlock(node, deltaPoint, map):
+
+    x = deltaPoint.x
+    y = deltaPoint.y
+
+    neighborList = []
+
+    if (abs(x) + abs(y)) == 2:
+        neighborList = [Point(x, 0), Point(0, y)]
+
+    for point in neighborList:
+
+        neighborPoint = node.getPoint() + point
+        neighbor = map.getNode(node.getPoint() + point)
+
+        if neighbor is None:
+            continue
+
+        if neighbor.isBlock() is True:
+            return True
+
+    return False
+
+def lookAround(node, map):
+
+    childDelta = [Point(1, 0), Point(1, -1), Point(0, -1), Point(-1, -1),
+                 Point(-1, 0), Point(-1, 1), Point(0, 1), Point(1, 1)]
+
+    openList = []
+
+    for delta in childDelta:
+
+        childPoint = node.getPoint() + delta
+        childNode = map.getNode(childPoint)
+
+        if childNode is None:
+            continue
+
+        if neighborBlock(node, delta, map) is True:
+            continue
+
+        if childNode.isBlock():
+            continue
+        elif childNode.isClose():
+            continue
+        elif childNode.isEmpty():
+            childNode.setParent(node)
+            childNode.setOpen()
+            openList.append(childNode)
+        elif childNode.isOpen():
+            currentCostG = childNode.costG()
+            newCostG = childNode.calcCostG(node)
+            if currentCostG > newCostG:
+                childNode.setParent(node)
+        else:
+            print('error!')
+
+    return openList
+
+    완성된 경로 확인
+
+while node:
+    print(node.getPoint())
+    node = node.getParent()
+
+→ 도착Node부터 시작 Node까지 순서로 탐색해서 경로를 생성한다.
